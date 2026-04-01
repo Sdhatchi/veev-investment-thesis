@@ -462,31 +462,31 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
 <!-- SIDE NAVIGATION -->
 <nav id="side-nav">
   <div class="nav-logo">V</div>
-  <div class="nav-item active" data-section="hero" onclick="scrollTo('hero')">
+  <div class="nav-item active" data-section="hero" onclick="scrollToSection('hero')">
     <span class="nav-num">1</span>
   </div>
-  <div class="nav-item" data-section="method" onclick="scrollTo('method')">
-    <span class="nav-num">0</span>
+  <div class="nav-item" data-section="method" onclick="scrollToSection('method')">
+    <span class="nav-num">⚙</span>
   </div>
-  <div class="nav-item" data-section="exec" onclick="scrollTo('exec')">
+  <div class="nav-item" data-section="exec" onclick="scrollToSection('exec')">
     <span class="nav-num">2</span>
   </div>
-  <div class="nav-item" data-section="company" onclick="scrollTo('company')">
+  <div class="nav-item" data-section="company" onclick="scrollToSection('company')">
     <span class="nav-num">3</span>
   </div>
-  <div class="nav-item" data-section="financials" onclick="scrollTo('financials')">
+  <div class="nav-item" data-section="financials" onclick="scrollToSection('financials')">
     <span class="nav-num">4</span>
   </div>
-  <div class="nav-item" data-section="industry" onclick="scrollTo('industry')">
+  <div class="nav-item" data-section="industry" onclick="scrollToSection('industry')">
     <span class="nav-num">5</span>
   </div>
-  <div class="nav-item" data-section="bears" onclick="scrollTo('bears')">
+  <div class="nav-item" data-section="bears" onclick="scrollToSection('bears')">
     <span class="nav-num">6</span>
   </div>
-  <div class="nav-item" data-section="valuation" onclick="scrollTo('valuation')">
+  <div class="nav-item" data-section="valuation" onclick="scrollToSection('valuation')">
     <span class="nav-num">7</span>
   </div>
-  <div class="nav-item" data-section="conclusion" onclick="scrollTo('conclusion')">
+  <div class="nav-item" data-section="conclusion" onclick="scrollToSection('conclusion')">
     <span class="nav-num">8</span>
   </div>
 </nav>
@@ -1149,7 +1149,7 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
       <tr><td>EBITDA</td><td>$1.44B</td><td>$1.62B</td><td>$1.84B</td></tr>
       <tr><td>Net Income</td><td>$891M</td><td>$1.05B</td><td>$1.17B</td></tr>
       <tr><td>EPS (Diluted)</td><td>$8.32</td><td class="highlight">$9.45</td><td class="highlight">$10.62</td></tr>
-      <tr><td>FCF</td><td>$1.33B</td><td>$1.53B</td><td>$1.72B</td></tr>
+      <tr><td>FCF</td><td>$1.39B</td><td>$1.53B</td><td>$1.72B</td></tr>
       <tr><td>P/E (at $175.67)</td><td>21.1x</td><td class="positive">18.6x</td><td class="positive">16.6x</td></tr>
       <tr><td>EV/EBITDA</td><td>15.6x</td><td class="positive">13.8x</td><td class="positive">12.2x</td></tr>
     </tbody>
@@ -1279,7 +1279,7 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
 const sections = ['hero','method','exec','company','financials','industry','bears','valuation','conclusion'];
 const navItems = document.querySelectorAll('.nav-item');
 
-function scrollTo(id) {
+function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
 
@@ -1320,11 +1320,11 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
     e.preventDefault();
     idx = Math.min(idx + 1, sections.length - 1);
-    scrollTo(sections[idx]);
+    scrollToSection(sections[idx]);
   } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
     e.preventDefault();
     idx = Math.max(idx - 1, 0);
-    scrollTo(sections[idx]);
+    scrollToSection(sections[idx]);
   }
 });
 
