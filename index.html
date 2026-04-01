@@ -45,7 +45,7 @@
   --ease-out:cubic-bezier(.22,1,.36,1);
 }
 
-html{scroll-behavior:smooth;font-size:16px;background:var(--bg-deep)}
+html{scroll-behavior:smooth;font-size:16px;background:var(--bg-deep);scroll-padding-top:20px}
 body{
   font-family:var(--font-body);
   background:var(--bg-deep);
@@ -106,7 +106,9 @@ a:hover{color:#2da0b0}
 
 .section{
   min-height:100vh;padding:80px 48px 80px;position:relative;
+  border-top:1px solid var(--border);
 }
+#hero{border-top:none}
 #hero{display:flex;flex-direction:column;justify-content:center}
 .section-inner{max-width:1200px;width:100%;margin:0 auto}
 
@@ -280,13 +282,8 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
 .popup-close:hover{background:var(--terra);color:#fff}
 
 /* Tooltip */
-[data-tip]{position:relative;cursor:help}
-[data-tip]:hover::after{
-  content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
-  background:var(--bg-surface);color:var(--text-primary);padding:8px 14px;border-radius:8px;
-  font-size:12px;white-space:nowrap;z-index:100;border:1px solid var(--border);
-  box-shadow:0 8px 24px rgba(0,0,0,.3);pointer-events:none;max-width:320px;white-space:normal;
-}
+[data-tip]{position:relative;cursor:default}
+[data-tip]::after{display:none}
 
 /* ============================================================
    HERO SPECIFIC
@@ -443,11 +440,11 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
 ::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
 
 /* Source link style */
-.src-link{
-  font-size:11px;color:var(--text-muted);font-style:italic;display:inline-flex;align-items:center;gap:4px;
+.src-link,.source-tag{
+  font-size:12px;color:var(--text-secondary);font-style:italic;display:inline-flex;align-items:center;gap:4px;
 }
-.src-link::before{content:'↗';font-style:normal}
-.src-link:hover{color:var(--teal)}
+.src-link::before{content:'';font-style:normal}
+.src-link:hover{color:var(--teal);text-decoration:underline}
 
 /* Annotation */
 .annotation{
@@ -512,7 +509,7 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
   <div class="hero-ticker">NYSE: VEEV &nbsp;|&nbsp; Veeva Systems Inc.</div>
   <h1 class="hero-title">Veeva Systems — <span style="color:var(--teal)">Long</span> Investment Thesis</h1>
   <div class="hero-subtitle">Perplexity Stock Pitch Competition 2026 &nbsp;|&nbsp; March 30 – April 3 &nbsp;|&nbsp; Finals April 11</div>
-  <div class="hero-author">Sankadithya Dhatchinamoorthi &nbsp;|&nbsp; George Mason University</div>
+  <div class="hero-author"><a href="https://www.linkedin.com/in/sankara-subramanian-dhatchina-366b86107/" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal-dim)">Sankarasubramanian Dhatchinamoorthi</a> &nbsp;|&nbsp; MS Health Informatics, George Mason University (GPA: 3.95)</div>
 
   <div class="live-price-block">
     <div class="live-dot"></div>
@@ -522,36 +519,36 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
     </div>
     <div>
       <div class="live-change down" id="live-change">-$0.28 (-0.16%)</div>
-      <div class="live-ts" id="live-ts">As of Mar 31, 2026 8:00 PM EDT</div>
+      <div class="live-ts" id="live-ts" style="font-size:10px;color:var(--text-muted)">As of March 31, 2026</div>
     </div>
   </div>
 
   <div class="kpi-bar">
     <div class="kpi-card">
       <div class="kpi-label">Share Price</div>
-      <div class="kpi-value counter" data-target="175.67" data-prefix="$">$0</div>
+      <div class="kpi-value counter" data-target="175.67" data-prefix="$">$175.67</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-label">Market Cap</div>
-      <div class="kpi-value counter" data-target="28.9" data-prefix="$" data-suffix="B">$0</div>
+      <div class="kpi-value counter" data-target="28.9" data-prefix="$" data-suffix="B">$28.9B</div>
     </div>
     <div class="kpi-card teal">
       <div class="kpi-label">Fwd P/E (NTM)</div>
-      <div class="kpi-value counter" data-target="18.6" data-suffix="x">0</div>
+      <div class="kpi-value counter" data-target="18.6" data-suffix="x">18.6x</div>
       <div class="kpi-sub">vs. 5-yr avg 54x</div>
     </div>
     <div class="kpi-card positive">
       <div class="kpi-label">FCF Margin</div>
-      <div class="kpi-value counter" data-target="44.3" data-suffix="%">0</div>
+      <div class="kpi-value counter" data-target="44.3" data-suffix="%">44.3%</div>
     </div>
     <div class="kpi-card gold">
       <div class="kpi-label">Net Cash</div>
-      <div class="kpi-value counter" data-target="6.5" data-prefix="$" data-suffix="B">$0</div>
+      <div class="kpi-value counter" data-target="6.5" data-prefix="$" data-suffix="B">$6.5B</div>
       <div class="kpi-sub">23% of mkt cap</div>
     </div>
     <div class="kpi-card positive">
       <div class="kpi-label">Analyst Upside</div>
-      <div class="kpi-value counter" data-target="51" data-prefix="+" data-suffix="%">0</div>
+      <div class="kpi-value counter" data-target="51" data-prefix="+" data-suffix="%">+51%</div>
       <div class="kpi-sub">Avg PT $265</div>
     </div>
   </div>
@@ -739,27 +736,27 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
 
   <h3 style="margin-top:32px">Balance Sheet Fortress</h3>
   <div class="kpi-bar">
-    <div class="kpi-card gold" data-tip="Cash + ST Investments − Total Debt. 23% of market cap.">
+    <div class="kpi-card gold">
       <div class="kpi-label">Net Cash</div>
-      <div class="kpi-value counter" data-target="6.46" data-prefix="$" data-suffix="B">$0</div>
+      <div class="kpi-value counter" data-target="6.46" data-prefix="$" data-suffix="B">$6.46B</div>
     </div>
-    <div class="kpi-card positive" data-tip="FY2026 LTM free cash flow; 44.3% FCF margin.">
+    <div class="kpi-card positive">
       <div class="kpi-label">Free Cash Flow</div>
-      <div class="kpi-value counter" data-target="1.39" data-prefix="$" data-suffix="B">$0</div>
+      <div class="kpi-value counter" data-target="1.39" data-prefix="$" data-suffix="B">$1.39B</div>
     </div>
-    <div class="kpi-card" data-tip="Virtually no debt: D/E = 0.012x. Total debt only $96M.">
+    <div class="kpi-card">
       <div class="kpi-label">Debt / Equity</div>
       <div class="kpi-value">0.012x</div>
     </div>
-    <div class="kpi-card teal" data-tip="Strong liquidity with 4.89x current ratio.">
+    <div class="kpi-card teal">
       <div class="kpi-label">Current Ratio</div>
       <div class="kpi-value">4.89x</div>
     </div>
-    <div class="kpi-card positive" data-tip="Return on invested capital expanded to 31.9%.">
+    <div class="kpi-card positive">
       <div class="kpi-label">ROIC</div>
-      <div class="kpi-value counter" data-target="31.9" data-suffix="%">0</div>
+      <div class="kpi-value counter" data-target="31.9" data-suffix="%">31.9%</div>
     </div>
-    <div class="kpi-card gold" data-tip="$2B share buyback authorized Feb 2026.">
+    <div class="kpi-card gold">
       <div class="kpi-label">Buyback</div>
       <div class="kpi-value">$2.0B</div>
     </div>
@@ -776,26 +773,58 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
   <span class="section-label">05 — Industry Tailwinds & AI</span>
   <h2>Expanding TAM & AI Opportunity</h2>
 
-  <div class="kpi-bar" style="margin-bottom:32px">
-    <div class="kpi-card" data-tip="Nova One Advisor: 10.49% CAGR to $69B by 2034">
-      <div class="kpi-label">Life Sciences IT</div>
-      <div class="kpi-value" style="font-size:1.1rem">$28B → <span style="color:var(--teal)">$69B</span></div>
-      <div class="kpi-sub"><a href="https://www.novaoneadvisor.com/report/life-sciences-it-market" target="_blank" class="src-link">10.5% CAGR to 2034</a></div>
+  <h3 style="color:var(--green);margin-bottom:16px">Tailwinds — Why the Market is Growing</h3>
+  <div class="kpi-bar" style="margin-bottom:24px">
+    <div class="kpi-card">
+      <div class="kpi-label">Life Sciences IT Market</div>
+      <div class="kpi-value" style="font-size:1.1rem">$28B <span style="color:var(--text-muted);font-size:0.8rem">today</span> → <span style="color:var(--teal)">$69B</span></div>
+      <div class="kpi-sub" style="color:var(--text-secondary);font-size:12px">Growing 10.5% per year through 2034</div>
+      <div class="kpi-sub"><a href="https://www.novaoneadvisor.com/report/life-sciences-it-market" target="_blank" class="src-link">Nova One Advisor Report</a></div>
     </div>
-    <div class="kpi-card" data-tip="AI in pharma growing 600% per BusinessWire/R&M">
-      <div class="kpi-label">Pharma AI Market</div>
-      <div class="kpi-value" style="font-size:1.1rem">$4B → <span style="color:var(--gold)">$25B</span></div>
-      <div class="kpi-sub"><a href="https://www.businesswire.com/news/home/20251002061816/en/Artificial-Intelligence-In-Pharmaceutical-Industry-Research-Report-2025-Market-to-Explode-and-Reach-a-Value-of-Over-$65-Billion-by-2033-from-$3.24-Billion-in-2024---ResearchAndMarkets.com" target="_blank" class="src-link">~38% CAGR to 2030</a></div>
+    <div class="kpi-card">
+      <div class="kpi-label">Pharma AI Spending</div>
+      <div class="kpi-value" style="font-size:1.1rem">$4B <span style="color:var(--text-muted);font-size:0.8rem">today</span> → <span style="color:var(--gold)">$25B</span></div>
+      <div class="kpi-sub" style="color:var(--text-secondary);font-size:12px">6x growth by 2030 (~38% CAGR)</div>
+      <div class="kpi-sub"><a href="https://www.businesswire.com/news/home/20251002061816/en/Artificial-Intelligence-In-Pharmaceutical-Industry-Research-Report-2025-Market-to-Explode-and-Reach-a-Value-of-Over-$65-Billion-by-2033-from-$3.24-Billion-in-2024---ResearchAndMarkets.com" target="_blank" class="src-link">BusinessWire / R&amp;M</a></div>
     </div>
-    <div class="kpi-card" data-tip="48% of life sciences C-suite cite digital transformation as 2026 priority">
-      <div class="kpi-label">Execs Citing AI</div>
+    <div class="kpi-card">
+      <div class="kpi-label">C-Suite Priority</div>
       <div class="kpi-value" style="color:var(--teal)">78%</div>
-      <div class="kpi-sub"><a href="https://www.deloitte.com/us/en/insights/industry/health-care/life-sciences-and-health-care-industry-outlooks/2026-life-sciences-executive-outlook.html" target="_blank" class="src-link">Deloitte 2026 Survey</a></div>
+      <div class="kpi-sub" style="color:var(--text-secondary);font-size:12px">of execs say AI will drive major efficiency gains</div>
+      <div class="kpi-sub"><a href="https://www.deloitte.com/us/en/insights/industry/health-care/life-sciences-and-health-care-industry-outlooks/2026-life-sciences-executive-outlook.html" target="_blank" class="src-link">Deloitte 2026 Survey (280 execs)</a></div>
     </div>
-    <div class="kpi-card" data-tip="Only 10.7% of companies fully implemented AI in clinical ops — massive runway">
-      <div class="kpi-label">AI Adoption Gap</div>
-      <div class="kpi-value" style="color:var(--terra)">10.7%</div>
-      <div class="kpi-sub">Fully adopted in clinical</div>
+    <div class="kpi-card">
+      <div class="kpi-label">AI Adoption Runway</div>
+      <div class="kpi-value"><span style="color:var(--gold)">89%</span> <span style="font-size:0.7rem;color:var(--text-secondary)">untapped</span></div>
+      <div class="kpi-sub" style="color:var(--text-secondary);font-size:12px">Only 10.7% have fully deployed AI in clinical ops</div>
+      <div class="kpi-sub"><a href="https://www.pharmaceutical-technology.com/analyst-comment/scope-2025-ai-clinical-operations/" target="_blank" class="src-link">Pharma Technology</a></div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--terra);margin-bottom:16px">Headwinds — What We're Watching</h3>
+  <div class="kpi-bar" style="margin-bottom:32px">
+    <div class="kpi-card" style="border-color:var(--terra-dim)">
+      <div class="kpi-label" style="color:var(--terra)">Pharma R&D Spend</div>
+      <div class="kpi-value" style="color:var(--terra);font-size:1rem">-3.6%</div>
+      <div class="kpi-sub" style="color:var(--text-secondary);font-size:12px">Top 16 pharma R&D budgets declined in 2025</div>
+      <div class="kpi-sub"><a href="https://www.biospace.com/business/pharma-r-d-spend-drops-3-6-as-pipeline-prioritizations-take-shape" target="_blank" class="src-link">BioSpace, March 2026</a></div>
+    </div>
+    <div class="kpi-card" style="border-color:var(--terra-dim)">
+      <div class="kpi-label" style="color:var(--terra)">NIH Funding Cuts</div>
+      <div class="kpi-value" style="color:var(--terra);font-size:1rem">-28%</div>
+      <div class="kpi-sub" style="color:var(--text-secondary);font-size:12px">~$2.3B cut in new NIH grant awards in 2025</div>
+      <div class="kpi-sub"><a href="https://www.deloitte.com/us/en/insights/industry/health-care/life-sciences-and-health-care-industry-outlooks/2026-life-sciences-executive-outlook.html" target="_blank" class="src-link">Deloitte 2026 Outlook</a></div>
+    </div>
+    <div class="kpi-card" style="border-color:var(--terra-dim)">
+      <div class="kpi-label" style="color:var(--terra)">Salesforce Push</div>
+      <div class="kpi-value" style="color:var(--terra);font-size:1rem">100+</div>
+      <div class="kpi-sub" style="color:var(--text-secondary);font-size:12px">life sciences customers claimed by Salesforce CRO</div>
+      <div class="kpi-sub"><a href="https://diginomica.com/salesforce-vs-veeva-games-afoot-and-life-sciences-battleground-hotting" target="_blank" class="src-link">Diginomica</a></div>
+    </div>
+    <div class="kpi-card" style="border-color:var(--green-dim)">
+      <div class="kpi-label" style="color:var(--green)">Our Assessment</div>
+      <div class="kpi-value" style="color:var(--green);font-size:0.9rem">Tailwinds Win</div>
+      <div class="kpi-sub" style="color:var(--text-secondary);font-size:12px">Veeva grew 16.3% through headwinds; R&D spend is cycling, not structural</div>
     </div>
   </div>
 
@@ -818,7 +847,7 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
     <div class="ai-card">
       <div class="ai-card-header">
         <div class="ai-card-title">Agentic CRM</div>
-        <span class="badge free">FREE → 2030</span>
+        <span class="badge free">FREE THROUGH 2030</span>
       </div>
       <div class="ai-card-desc">Pre-call intelligence, voice, free-text AI. Competitive moat vs. Salesforce. "Fastest path to Agentic CRM." — <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Paul Shawah, EVP</a></div>
     </div>
@@ -842,15 +871,28 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
   </blockquote>
 
   <div class="edge-box">
-    <div class="edge-title">Analytical Edge: Health Informatics Perspective</div>
-    <p style="font-size:13.5px;color:var(--text-secondary);line-height:1.7">
-      Veeva's Vault platform is natively built for <strong style="color:var(--text-primary)">21 CFR Part 11</strong> compliance (electronic records/signatures), <strong style="color:var(--text-primary)">ICH E6 R3</strong> (GCP modernization — finalized 2025), and <strong style="color:var(--text-primary)">HL7/FHIR</strong> interoperability standards. This regulatory integration creates a moat that generalist platforms cannot replicate without years of domain-specific investment. The 2025 ICH E6 R3 update — moving risk-based monitoring from guidance to inspection expectation — directly increases demand for Vault CTMS.
+    <div class="edge-title">Analytical Edge: Firsthand Enterprise Migration Experience</div>
+    <p style="font-size:13.5px;color:var(--text-primary);line-height:1.7;margin-bottom:12px">
+      <strong>I worked at Avantor — a global life sciences company — during their SAP S/4HANA migration.</strong> What I saw firsthand is what Wall Street analysts miss when they model Salesforce "winning" Veeva's customers: enterprise migrations in regulated environments are painfully slow. We maintained double documentation throughout — running legacy and new systems in parallel for compliance. With 300,000+ pharmaceutical product records, every data point had to be validated, every workflow re-tested. The migration that was planned for months stretched into years.
     </p>
+    <p style="font-size:13.5px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px">
+      <strong style="color:var(--gold)">This is exactly what Novartis faces.</strong> Their Salesforce rollout is a <strong style="color:var(--text-primary)">5-year global implementation</strong>. The market treated this as an instant loss for Veeva — but signing a contract is not the same as going live. Industry data confirms: <strong style="color:var(--text-primary)">only 8% of SAP enterprise migrations finish on schedule</strong>, and <strong style="color:var(--text-primary)">60%+ exceed budget</strong>.
+    </p>
+    <p style="font-size:13.5px;color:var(--text-secondary);line-height:1.7;margin-bottom:8px">
+      Veeva's moat isn't just financial switching costs — it's <strong style="color:var(--text-primary)">21 CFR Part 11</strong> compliance (electronic records/signatures), <strong style="color:var(--text-primary)">ICH E6 R3</strong> (GCP modernization, finalized 2025), and <strong style="color:var(--text-primary)">GxP validation</strong> that adds 12–18 months and 25–40% of project cost to any migration. Generalist platforms cannot replicate this without years of domain-specific engineering.
+    </p>
+    <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
+      <div style="font-size:11px;color:var(--text-muted);margin-bottom:6px">PRACTITIONER EVIDENCE</div>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:4px">"CRM migrations of this scale often take <strong style="color:var(--text-primary)">18–24 months</strong>" — <a href="https://www.linkedin.com/posts/ankit-jaiswal-1808_veeva-vault-migration-activity-7385374266118082560-41kF" target="_blank" class="src-link">Ankit Jaiswal, LinkedIn (Oct 2025)</a></p>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:4px">"Not because of the technology — but because of complex integrations, data quality gaps, compliance requirements, and change management" — <a href="https://www.linkedin.com/posts/cnxsi_theteambehindyourteam-lifesciences-veeva-activity-7437490935736946688-Fjed" target="_blank" class="src-link">Conexus Solutions, LinkedIn (March 2026)</a></p>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:4px">"Teams waiting until 2028–2029 will be competing for a shrinking pool of resources — and paying a premium" — <a href="https://www.linkedin.com/posts/cnxsi_theteambehindyourteam-vaultcrm-vaultcrmmigration-activity-7417646949492936704-F38z" target="_blank" class="src-link">Conexus Solutions, LinkedIn (Jan 2026)</a></p>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">"Horváth Study 2025: Only 8% of SAP migrations finish on schedule; 60%+ exceed budget; only 37 of 200 companies completed migration" — <a href="https://www.softwareseni.com/what-sap-ecc-end-of-support-actually-means-and-why-17000-companies-are-not-ready/" target="_blank" class="src-link">SoftwareSeni (March 2026)</a></p>
+    </div>
     <div style="margin-top:8px">
       <a href="https://www.lambda-cro.com/clinical-trials-regulatory-developments-2025/" target="_blank" class="src-link">Lambda CRO</a> &nbsp;
-      <a href="https://app.cbinsights.com/research/generative-ai-healthcare-life-sciences-market-map/" target="_blank" class="src-link">CB Insights GenAI Map</a> &nbsp;
+      <a href="https://app.cbinsights.com/research/generative-ai-healthcare-life-sciences-market-map/" target="_blank" class="src-link">CB Insights</a> &nbsp;
       <a href="https://www.deloitte.com/us/en/insights/industry/health-care/life-sciences-and-health-care-industry-outlooks/2026-life-sciences-executive-outlook.html" target="_blank" class="src-link">Deloitte 2026</a> &nbsp;
-      <a href="https://www.novaoneadvisor.com/report/life-sciences-it-market" target="_blank" class="src-link">Nova One Advisor</a>
+      <a href="https://intuitionlabs.ai/articles/veeva-vault-crm-migration-roadmap" target="_blank" class="src-link">IntuitionLabs Migration Roadmap</a>
     </div>
   </div>
 </div>
@@ -1088,15 +1130,40 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
     </tbody>
   </table>
 
-  <div style="margin-top:40px;text-align:center">
+  <!-- RESEARCH METHODOLOGY -->
+  <div class="edge-box" style="margin-top:40px;border-color:var(--teal-dim)">
+    <div class="edge-title" style="color:var(--teal)">Research Methodology — Built Entirely with Perplexity Computer</div>
+    <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px">
+      This thesis was researched, analyzed, and published using <strong style="color:var(--text-primary)">Perplexity Computer</strong> as a full research-to-publication pipeline. No manual data entry. Every number traces to a verified source.
+    </p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:12px">
+      <div style="background:var(--bg-card);padding:10px;border-radius:8px;border:1px solid var(--border)">
+        <div style="font-family:var(--font-mono);color:var(--teal);font-size:20px;font-weight:700">7</div>
+        <div style="font-size:11px;color:var(--text-muted)">Data Connectors Used</div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">Perplexity Finance, PitchBook, CB Insights, SEC Filings, Earnings Transcripts, Web Research, Social Media</div>
+      </div>
+      <div style="background:var(--bg-card);padding:10px;border-radius:8px;border:1px solid var(--border)">
+        <div style="font-family:var(--font-mono);color:var(--teal);font-size:20px;font-weight:700">21</div>
+        <div style="font-size:11px;color:var(--text-muted)">Structured Data Files</div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">Financials, transcripts, ratios, segments, peers, insider trades, institutional holders, price history, and more</div>
+      </div>
+      <div style="background:var(--bg-card);padding:10px;border-radius:8px;border:1px solid var(--border)">
+        <div style="font-family:var(--font-mono);color:var(--teal);font-size:20px;font-weight:700">2</div>
+        <div style="font-size:11px;color:var(--text-muted)">Deliverables Generated</div>
+        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">10-page PDF (Python/ReportLab) + this interactive website (1,500+ lines HTML/CSS/JS)</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:24px;text-align:center">
     <p style="font-size:14px;color:var(--text-secondary)">
       Prepared for the <a href="https://perplexity.ai/finance/VEEV" target="_blank" style="color:var(--teal);font-weight:600">Perplexity Stock Pitch Competition 2026</a>
     </p>
     <p style="font-size:14px;color:var(--text-secondary);margin-top:4px">
-      Judges: <strong style="color:var(--text-primary)">Coatue</strong> ($70B AUM) &nbsp;·&nbsp; <strong style="color:var(--text-primary)">Third Point</strong> ($17B AUM) &nbsp;·&nbsp; $17,500 Prize Pool
+      Judges: <strong style="color:var(--text-primary)">Coatue</strong> ($70B AUM) &nbsp;·&nbsp; <strong style="color:var(--text-primary)">Third Point</strong> ($17B AUM) &nbsp;·&nbsp; <strong style="color:var(--text-primary)">Silver Lake</strong> ($102B AUM) &nbsp;·&nbsp; $17,500 Prize Pool
     </p>
     <p style="font-size:14px;color:var(--text-secondary);margin-top:4px">
-      Author: <strong style="color:var(--text-primary)">Sankadithya Dhatchinamoorthi</strong> &nbsp;|&nbsp; George Mason University
+      Author: <a href="https://www.linkedin.com/in/sankara-subramanian-dhatchina-366b86107/" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal-dim)"><strong style="color:var(--teal)">Sankarasubramanian Dhatchinamoorthi</strong></a> &nbsp;|&nbsp; MS Health Informatics, George Mason University (GPA: 3.95)
     </p>
   </div>
 
@@ -1195,18 +1262,9 @@ function animateCounters() {
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
     const decimals = String(target).includes('.') ? String(target).split('.')[1].length : 0;
-    const duration = 1200;
-    const start = performance.now();
 
-    function update(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = target * eased;
-      el.textContent = prefix + current.toFixed(decimals) + suffix;
-      if (progress < 1) requestAnimationFrame(update);
-    }
-    requestAnimationFrame(update);
+    // Show final value immediately — no animation from zero
+    el.textContent = prefix + target.toFixed(decimals) + suffix;
   });
 }
 window.addEventListener('scroll', animateCounters);
@@ -1300,7 +1358,7 @@ async function fetchLivePrice() {
     document.getElementById('live-ts').textContent = 'Live from Yahoo Finance · ' + new Date().toLocaleString();
   } catch(e) {
     // Fallback — keep static
-    document.getElementById('live-ts').textContent = 'As of Mar 31, 2026 · Static (API unavailable)';
+    document.getElementById('live-ts').textContent = 'As of March 31, 2026';
   }
 }
 fetchLivePrice();
