@@ -465,6 +465,9 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
   <div class="nav-item active" data-section="hero" onclick="scrollTo('hero')">
     <span class="nav-num">1</span>
   </div>
+  <div class="nav-item" data-section="method" onclick="scrollTo('method')">
+    <span class="nav-num">0</span>
+  </div>
   <div class="nav-item" data-section="exec" onclick="scrollTo('exec')">
     <span class="nav-num">2</span>
   </div>
@@ -556,6 +559,86 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
   <div class="variant-box">
     <div class="variant-label">Variant Perception</div>
     <div class="variant-text">Salesforce competition is a <strong>cyclical headwind being priced as structural</strong>, while AI monetization and R&D cloud expansion provide <strong>asymmetric upside</strong> not reflected in current estimates.</div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 0: METHODOLOGY — HOW WE USED PERPLEXITY COMPUTER -->
+<!-- ============================================================ -->
+<section class="section" id="method">
+<div class="section-inner reveal">
+  <span class="section-label">00 — How This Thesis Was Built</span>
+  <h2>Perplexity Computer: Master Agent + Sub-Agent Architecture</h2>
+  <p style="color:var(--text-secondary);margin-bottom:24px;font-size:14px">
+    This entire thesis — from stock screening to PDF generation to this interactive website — was built using <strong style="color:var(--teal)">Perplexity Computer</strong> as a multi-agent research system. Here is the exact process:
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:24px">
+
+    <!-- Phase 1 -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;border-left:3px solid var(--teal)">
+      <div style="font-family:var(--font-mono);color:var(--teal);font-size:11px;margin-bottom:6px">PHASE 1 — STOCK SCREENING</div>
+      <div style="font-size:13px;color:var(--text-primary);font-weight:600;margin-bottom:6px">Master Agent: Screen 7 Healthcare/AI Candidates</div>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">Perplexity Finance tools pulled real-time quotes, P/E ratios, revenue growth, and analyst targets for VEEV, DOCS, GMED, ISRG, HIMS, FMS, and TDOC. Multi-factor scoring ranked each stock. <strong style="color:var(--text-primary)">VEEV selected</strong> based on domain expertise alignment + valuation disconnect.</p>
+    </div>
+
+    <!-- Phase 2 -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;border-left:3px solid var(--gold)">
+      <div style="font-family:var(--font-mono);color:var(--gold);font-size:11px;margin-bottom:6px">PHASE 2 — PARALLEL SUB-AGENTS (5 Simultaneous)</div>
+      <div style="font-size:13px;color:var(--text-primary);font-weight:600;margin-bottom:6px">5 Research Sub-Agents Deployed in Parallel</div>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">
+        <strong style="color:var(--text-primary)">Agent 2A:</strong> Financial data — 8Q income statements, balance sheets, cash flows, 5-year ratios, forward estimates<br>
+        <strong style="color:var(--text-primary)">Agent 2B:</strong> Earnings transcript — CEO/CFO quotes on AI, competition, guidance from Q4 FY2026 call<br>
+        <strong style="color:var(--text-primary)">Agent 2C:</strong> Market intelligence — sentiment, insider transactions, analyst targets, 2-year price history<br>
+        <strong style="color:var(--text-primary)">Agent 2D:</strong> Industry research via PitchBook + CB Insights connectors<br>
+        <strong style="color:var(--text-primary)">Agent 2E:</strong> Validation — bear case research, news, social media, fact-checking
+      </p>
+    </div>
+
+    <!-- Phase 3 -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;border-left:3px solid var(--green)">
+      <div style="font-family:var(--font-mono);color:var(--green);font-size:11px;margin-bottom:6px">PHASE 3 — SYNTHESIS + PUBLICATION</div>
+      <div style="font-size:13px;color:var(--text-primary);font-weight:600;margin-bottom:6px">Programmatic Asset Generation</div>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">
+        <strong style="color:var(--text-primary)">PDF Builder:</strong> Python script (ReportLab + Matplotlib) generated a 10-page thesis with custom fonts, charts, and source citations — zero manual layout<br>
+        <strong style="color:var(--text-primary)">Website Builder:</strong> Full 1,500+ line interactive website with Chart.js, scroll animations, keyboard navigation, live price API<br>
+        <strong style="color:var(--text-primary)">Deployed to:</strong> Perplexity Computer hosting + GitHub Pages
+      </p>
+    </div>
+  </div>
+
+  <!-- Data pipeline visual -->
+  <h3 style="margin-bottom:12px">Data Pipeline: 21 Structured Research Files</h3>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px">
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">quarterly_financials.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">earnings_transcript_analysis.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">validation_bears_risks.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">five_year_ratios.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">forward_estimates.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">segment_revenue.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">analyst_targets.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">insider_transactions.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">institutional_holders.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">price_history.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">sentiment_analysis.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">cbinsights_competitive.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">cbinsights_ai_lifesciences.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">industry_tailwinds_headwinds.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">pitchbook_profile.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">peers.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">earnings_history.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">fact_check_items.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">migration_research.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">politician_holders.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">screening.py</span>
+  </div>
+
+  <div class="edge-box" style="border-color:var(--teal-dim)">
+    <div class="edge-title" style="color:var(--teal)">Why This Matters for the Competition</div>
+    <p style="font-size:13px;color:var(--text-secondary);line-height:1.7">
+      The #1 judging criterion is <strong style="color:var(--text-primary)">creative use of Perplexity Computer</strong>. Most competitors will use it for search. This submission used it as a <strong style="color:var(--text-primary)">full research-to-publication operating system</strong> — orchestrating parallel sub-agents, pulling data from 7 connectors (Perplexity Finance, PitchBook, CB Insights, SEC filings, earnings transcripts, web research, social media), generating structured analysis files, and programmatically building both a PDF and an interactive website. The human contribution was domain expertise (health informatics + SAP migration experience) and investment judgment. The machine contribution was speed, scale, and precision.
+    </p>
   </div>
 </div>
 </section>
@@ -1160,7 +1243,7 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
       Prepared for the <a href="https://perplexity.ai/finance/VEEV" target="_blank" style="color:var(--teal);font-weight:600">Perplexity Stock Pitch Competition 2026</a>
     </p>
     <p style="font-size:14px;color:var(--text-secondary);margin-top:4px">
-      Judges: <strong style="color:var(--text-primary)">Coatue</strong> ($70B AUM) &nbsp;·&nbsp; <strong style="color:var(--text-primary)">Third Point</strong> ($17B AUM) &nbsp;·&nbsp; <strong style="color:var(--text-primary)">Silver Lake</strong> ($102B AUM) &nbsp;·&nbsp; $17,500 Prize Pool
+      Judges: <strong style="color:var(--text-primary)">Philippe Laffont</strong> <span style="color:var(--text-muted)">(Founder &amp; CIO, Coatue — $70B AUM)</span> &nbsp;·&nbsp; <strong style="color:var(--text-primary)">Dan Loeb</strong> <span style="color:var(--text-muted)">(Founder &amp; CEO, Third Point — $17B AUM)</span> &nbsp;·&nbsp; <strong style="color:var(--text-primary)">Ken Hao</strong> <span style="color:var(--text-muted)">(Chairman, Silver Lake — $102B AUM)</span> &nbsp;·&nbsp; $17,500 Prize Pool
     </p>
     <p style="font-size:14px;color:var(--text-secondary);margin-top:4px">
       Author: <a href="https://www.linkedin.com/in/sankara-subramanian-dhatchina-366b86107/" target="_blank" rel="noopener noreferrer" style="color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal-dim)"><strong style="color:var(--teal)">Sankarasubramanian Dhatchinamoorthi</strong></a> &nbsp;|&nbsp; MS Health Informatics, George Mason University (GPA: 3.95)
@@ -1182,7 +1265,7 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
 // ============================================================
 // NAVIGATION
 // ============================================================
-const sections = ['hero','exec','company','financials','industry','bears','valuation','conclusion'];
+const sections = ['hero','method','exec','company','financials','industry','bears','valuation','conclusion'];
 const navItems = document.querySelectorAll('.nav-item');
 
 function scrollTo(id) {
