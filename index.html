@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VEEV | Long Investment Thesis — Perplexity Stock Pitch Competition 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+/* ============================================================
+   CSS RESET & VARIABLES
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg-deep:#060a14;
+  --bg-primary:#0a0f1e;
+  --bg-card:#0f1628;
+  --bg-card-hover:#141c34;
+  --bg-surface:#1a2340;
+  --border:#1e2a4a;
+  --border-light:#283656;
+  --text-primary:#e8ecf4;
+  --text-secondary:#8b95b0;
+  --text-muted:#5a6580;
+  --teal:#20808D;
+  --teal-dim:#1a6a75;
+  --teal-glow:rgba(32,128,141,.15);
+  --terra:#A84B2F;
+  --terra-dim:#8a3d27;
+  --terra-bg:rgba(168,75,47,.08);
+  --green:#437A22;
+  --green-dim:#366318;
+  --green-bg:rgba(67,122,34,.08);
+  --gold:#D19900;
+  --gold-dim:#a87d00;
+  --gold-bg:rgba(209,153,0,.1);
+  --white:#ffffff;
+  --font-heading:'DM Sans',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+  --nav-width:64px;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+
+html{scroll-behavior:smooth;font-size:16px;background:var(--bg-deep)}
+body{
+  font-family:var(--font-body);
+  background:var(--bg-deep);
+  color:var(--text-primary);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+a{color:var(--teal);text-decoration:none;transition:color .2s}
+a:hover{color:#2da0b0}
+
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
+#progress-bar{
+  position:fixed;top:0;left:var(--nav-width);right:0;height:3px;
+  background:var(--bg-deep);z-index:1000;
+}
+#progress-fill{
+  height:100%;width:0%;background:linear-gradient(90deg,var(--teal),var(--gold));
+  transition:width .3s var(--ease-out);
+}
+
+/* ============================================================
+   SIDE NAVIGATION
+   ============================================================ */
+#side-nav{
+  position:fixed;left:0;top:0;bottom:0;width:var(--nav-width);
+  background:var(--bg-primary);border-right:1px solid var(--border);
+  z-index:999;display:flex;flex-direction:column;align-items:center;
+  padding:20px 0;gap:4px;
+}
+.nav-logo{
+  width:36px;height:36px;margin-bottom:16px;display:flex;align-items:center;
+  justify-content:center;border-radius:8px;background:var(--teal);
+  color:#fff;font-family:var(--font-mono);font-weight:700;font-size:11px;letter-spacing:-.5px;
+}
+.nav-item{
+  width:44px;height:44px;border-radius:8px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;cursor:pointer;
+  transition:all .2s var(--ease-out);position:relative;
+  color:var(--text-muted);font-size:9px;font-weight:500;letter-spacing:.3px;
+  text-transform:uppercase;gap:2px;
+}
+.nav-item:hover{background:var(--bg-surface);color:var(--text-secondary)}
+.nav-item.active{background:var(--teal-glow);color:var(--teal)}
+.nav-item.active::before{
+  content:'';position:absolute;left:-2px;top:8px;bottom:8px;width:3px;
+  background:var(--teal);border-radius:0 2px 2px 0;
+}
+.nav-num{font-family:var(--font-mono);font-size:14px;font-weight:600;line-height:1}
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+#main{margin-left:var(--nav-width);min-height:100vh}
+
+.section{
+  min-height:100vh;padding:80px 48px 80px;position:relative;
+}
+#hero{display:flex;flex-direction:column;justify-content:center}
+.section-inner{max-width:1200px;width:100%;margin:0 auto}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1{font-family:var(--font-heading);font-weight:700;font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;letter-spacing:-.02em}
+h2{font-family:var(--font-heading);font-weight:600;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;letter-spacing:-.01em;margin-bottom:32px}
+h3{font-family:var(--font-heading);font-weight:600;font-size:1.15rem;line-height:1.3;margin-bottom:12px}
+.section-label{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:block;
+}
+
+/* ============================================================
+   KPI CARDS & STAT BLOCKS
+   ============================================================ */
+.kpi-bar{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:24px 0;
+}
+.kpi-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:10px;
+  padding:16px 18px;transition:all .25s var(--ease-out);position:relative;overflow:hidden;
+}
+.kpi-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+.kpi-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--teal);opacity:0;transition:opacity .2s;
+}
+.kpi-card:hover::after{opacity:1}
+.kpi-label{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px;font-weight:500;margin-bottom:4px}
+.kpi-value{font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--text-primary);line-height:1.2}
+.kpi-sub{font-size:12px;color:var(--text-secondary);margin-top:2px}
+.kpi-card.positive .kpi-value{color:var(--green)}
+.kpi-card.negative .kpi-value{color:var(--terra)}
+.kpi-card.gold .kpi-value{color:var(--gold)}
+.kpi-card.teal .kpi-value{color:var(--teal)}
+
+/* ============================================================
+   DATA TABLES
+   ============================================================ */
+.data-table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+.data-table th{
+  background:var(--bg-surface);padding:10px 14px;text-align:left;
+  font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.6px;
+  color:var(--text-secondary);border-bottom:2px solid var(--border);
+}
+.data-table td{
+  padding:10px 14px;border-bottom:1px solid var(--border);
+  color:var(--text-primary);font-variant-numeric:tabular-nums;
+}
+.data-table tr:hover td{background:var(--bg-card-hover)}
+.data-table .positive{color:var(--green)}
+.data-table .negative{color:var(--terra)}
+.data-table .highlight{color:var(--gold);font-weight:600}
+
+/* ============================================================
+   CARDS
+   ============================================================ */
+.card-grid{display:grid;gap:20px}
+.card-grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card-grid.cols-2{grid-template-columns:repeat(auto-fit,minmax(380px,1fr))}
+
+.thesis-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
+  padding:28px;cursor:pointer;transition:all .3s var(--ease-out);position:relative;overflow:hidden;
+}
+.thesis-card:hover{border-color:var(--teal);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.thesis-card .card-icon{
+  width:40px;height:40px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:20px;margin-bottom:16px;
+}
+.thesis-card .card-title{font-family:var(--font-heading);font-weight:600;font-size:1.1rem;margin-bottom:8px}
+.thesis-card .card-text{font-size:13.5px;color:var(--text-secondary);line-height:1.65}
+.thesis-card .card-evidence{
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--border);
+  font-size:12px;color:var(--text-muted);display:none;
+}
+.thesis-card.expanded .card-evidence{display:block}
+
+/* ============================================================
+   BEAR / BULL SPLIT
+   ============================================================ */
+.bear-bull-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;margin:8px 0;
+  border:1px solid var(--border);border-radius:10px;overflow:hidden;
+}
+.bear-side,.bull-side{padding:18px 22px;font-size:13px;line-height:1.65}
+.bear-side{background:var(--terra-bg);border-right:1px solid var(--border)}
+.bull-side{background:var(--green-bg)}
+.bear-side .side-label{color:var(--terra);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.bull-side .side-label{color:var(--green);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.bear-side a{color:var(--terra)}
+.bull-side a{color:var(--green)}
+
+/* ============================================================
+   BLOCKQUOTES
+   ============================================================ */
+blockquote{
+  border-left:3px solid var(--teal);padding:16px 24px;margin:20px 0;
+  background:var(--teal-glow);border-radius:0 8px 8px 0;
+  font-style:italic;color:var(--text-secondary);font-size:14px;line-height:1.7;
+}
+blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px;margin-top:8px;font-weight:500}
+
+/* ============================================================
+   TIMELINE
+   ============================================================ */
+.catalyst-timeline{
+  display:flex;gap:0;margin:32px 0;position:relative;
+}
+.catalyst-timeline::before{
+  content:'';position:absolute;top:24px;left:0;right:0;height:2px;
+  background:var(--border);
+}
+.catalyst-item{
+  flex:1;text-align:center;position:relative;padding-top:40px;
+}
+.catalyst-item::before{
+  content:'';position:absolute;top:18px;left:50%;transform:translateX(-50%);
+  width:14px;height:14px;border-radius:50%;background:var(--teal);
+  border:3px solid var(--bg-primary);z-index:1;
+}
+.catalyst-item.soon::before{background:var(--gold)}
+.catalyst-date{font-family:var(--font-mono);font-size:11px;color:var(--teal);margin-bottom:4px}
+.catalyst-item.soon .catalyst-date{color:var(--gold)}
+.catalyst-text{font-size:12px;color:var(--text-secondary);line-height:1.4;padding:0 8px}
+
+/* ============================================================
+   CHART CONTAINERS
+   ============================================================ */
+.chart-container{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
+  padding:24px;margin:16px 0;
+}
+.chart-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.chart-title{font-family:var(--font-heading);font-weight:600;font-size:1rem}
+.chart-subtitle{font-size:12px;color:var(--text-muted)}
+
+/* ============================================================
+   STATUS BADGES
+   ============================================================ */
+.badge{
+  display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;
+  font-weight:600;letter-spacing:.3px;
+}
+.badge.live{background:rgba(67,122,34,.15);color:var(--green)}
+.badge.upcoming{background:var(--gold-bg);color:var(--gold)}
+.badge.early{background:rgba(32,128,141,.12);color:var(--teal)}
+.badge.free{background:rgba(32,128,141,.12);color:var(--teal)}
+
+/* ============================================================
+   POPUP / TOOLTIP
+   ============================================================ */
+.popup-overlay{
+  position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(6,10,20,.7);
+  backdrop-filter:blur(4px);z-index:1100;display:none;align-items:center;justify-content:center;
+}
+.popup-overlay.visible{display:flex}
+.popup-content{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:14px;
+  padding:36px;max-width:640px;width:90%;max-height:80vh;overflow-y:auto;
+  box-shadow:0 24px 80px rgba(0,0,0,.5);position:relative;
+}
+.popup-close{
+  position:absolute;top:14px;right:14px;width:32px;height:32px;border:none;
+  background:var(--bg-surface);border-radius:8px;color:var(--text-secondary);
+  cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.popup-close:hover{background:var(--terra);color:#fff}
+
+/* Tooltip */
+[data-tip]{position:relative;cursor:help}
+[data-tip]:hover::after{
+  content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:var(--bg-surface);color:var(--text-primary);padding:8px 14px;border-radius:8px;
+  font-size:12px;white-space:nowrap;z-index:100;border:1px solid var(--border);
+  box-shadow:0 8px 24px rgba(0,0,0,.3);pointer-events:none;max-width:320px;white-space:normal;
+}
+
+/* ============================================================
+   HERO SPECIFIC
+   ============================================================ */
+#hero{
+  background:linear-gradient(180deg,var(--bg-deep) 0%,var(--bg-primary) 40%,var(--bg-deep) 100%);
+  position:relative;overflow:hidden;
+}
+#hero::before{
+  content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(32,128,141,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-ticker{
+  font-family:var(--font-mono);font-size:14px;letter-spacing:3px;
+  color:var(--teal);text-transform:uppercase;margin-bottom:8px;
+}
+.hero-title{margin-bottom:8px}
+.hero-subtitle{font-size:15px;color:var(--text-secondary);margin-bottom:4px}
+.hero-author{font-size:13px;color:var(--text-muted);margin-bottom:32px}
+
+.live-price-block{
+  display:inline-flex;align-items:center;gap:16px;
+  background:var(--bg-card);border:1px solid var(--border);border-radius:10px;
+  padding:14px 24px;margin-bottom:28px;
+}
+.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.live-price{font-family:var(--font-heading);font-size:2rem;font-weight:700}
+.live-change{font-size:14px;font-weight:600}
+.live-change.up{color:var(--green)}
+.live-change.down{color:var(--terra)}
+.live-ts{font-size:11px;color:var(--text-muted)}
+
+.variant-box{
+  margin-top:28px;padding:18px 24px;border-left:3px solid var(--gold);
+  background:var(--gold-bg);border-radius:0 8px 8px 0;
+}
+.variant-label{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:4px}
+.variant-text{font-size:14px;color:var(--text-primary);line-height:1.6}
+
+/* ============================================================
+   RECOMMENDATION CARD
+   ============================================================ */
+.rec-card{
+  background:linear-gradient(135deg,var(--bg-card) 0%,var(--bg-surface) 100%);
+  border:2px solid var(--teal);border-radius:14px;padding:36px;text-align:center;
+  position:relative;overflow:hidden;margin:24px 0;
+}
+.rec-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--teal-glow) 0%,transparent 50%);
+  pointer-events:none;
+}
+.rec-badge{
+  display:inline-block;padding:6px 28px;border-radius:6px;
+  background:var(--green);color:#fff;font-family:var(--font-heading);
+  font-weight:700;font-size:1.4rem;letter-spacing:2px;margin-bottom:20px;
+}
+
+/* ============================================================
+   ANIMATION
+   ============================================================ */
+.reveal{opacity:0;transition:opacity .6s var(--ease-out)}
+.reveal.visible{opacity:1}
+
+.counter{font-variant-numeric:tabular-nums}
+
+/* ============================================================
+   PLATFORM DIAGRAM
+   ============================================================ */
+.platform-diagram{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0;
+}
+.platform-cloud{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:12px;
+  padding:24px;text-align:center;transition:all .3s var(--ease-out);
+}
+.platform-cloud:hover{border-color:var(--teal);transform:translateY(-2px)}
+.cloud-icon{font-size:28px;margin-bottom:12px}
+.cloud-name{font-family:var(--font-heading);font-weight:600;font-size:1rem;margin-bottom:8px;color:var(--teal)}
+.cloud-products{font-size:12px;color:var(--text-secondary);line-height:1.6}
+.cloud-rev{font-family:var(--font-mono);font-size:13px;color:var(--gold);margin-top:10px;font-weight:500}
+
+/* ============================================================
+   AI ROADMAP
+   ============================================================ */
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:20px 0}
+.ai-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;
+  transition:all .25s var(--ease-out);
+}
+.ai-card:hover{border-color:var(--teal)}
+.ai-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.ai-card-title{font-family:var(--font-heading);font-weight:600}
+.ai-card-desc{font-size:13px;color:var(--text-secondary);line-height:1.6}
+
+/* ============================================================
+   EDGE BOX
+   ============================================================ */
+.edge-box{
+  border:1px solid var(--gold);border-radius:12px;padding:24px;
+  background:var(--gold-bg);margin:24px 0;
+}
+.edge-title{color:var(--gold);font-family:var(--font-heading);font-weight:600;margin-bottom:8px}
+
+/* ============================================================
+   SCENARIO BARS
+   ============================================================ */
+.scenario-chart{margin:20px 0}
+.scenario-row{display:flex;align-items:center;gap:16px;margin:12px 0}
+.scenario-label{width:60px;font-weight:600;font-size:14px;text-align:right}
+.scenario-bar-bg{flex:1;height:36px;background:var(--bg-surface);border-radius:6px;position:relative;overflow:hidden}
+.scenario-bar{height:100%;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding-right:12px;font-weight:600;font-size:13px;color:#fff;transition:width 1s var(--ease-out)}
+.scenario-value{width:60px;font-family:var(--font-mono);font-weight:600;font-size:14px;text-align:left}
+.current-marker{
+  position:absolute;top:-6px;bottom:-6px;width:2px;background:var(--gold);z-index:2;
+}
+.current-marker::after{
+  content:'Current $176';position:absolute;top:-20px;left:50%;transform:translateX(-50%);
+  font-size:10px;color:var(--gold);white-space:nowrap;font-weight:600;
+}
+
+/* ============================================================
+   DISCLAIMER
+   ============================================================ */
+.disclaimer{
+  font-size:11px;color:var(--text-muted);line-height:1.6;margin-top:40px;
+  padding-top:20px;border-top:1px solid var(--border);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:900px){
+  .section{padding:60px 24px}
+  .bear-bull-row{grid-template-columns:1fr}
+  .bear-side{border-right:none;border-bottom:1px solid var(--border)}
+  .platform-diagram{grid-template-columns:1fr}
+  .kpi-bar{grid-template-columns:repeat(3,1fr)}
+  .catalyst-timeline{flex-wrap:wrap}
+}
+@media(max-width:600px){
+  #side-nav{width:48px}
+  :root{--nav-width:48px}
+  .nav-item{width:36px;height:36px}
+  .nav-label{display:none}
+  .kpi-bar{grid-template-columns:repeat(2,1fr)}
+}
+/* Scrollbar */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-deep)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--text-muted)}
+
+/* Source link style */
+.src-link{
+  font-size:11px;color:var(--text-muted);font-style:italic;display:inline-flex;align-items:center;gap:4px;
+}
+.src-link::before{content:'↗';font-style:normal}
+.src-link:hover{color:var(--teal)}
+
+/* Annotation */
+.annotation{
+  position:absolute;background:var(--gold-bg);border:1px solid var(--gold);
+  color:var(--gold);font-size:11px;padding:4px 10px;border-radius:6px;
+  font-weight:600;white-space:nowrap;pointer-events:none;
+}
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"><div id="progress-fill"></div></div>
+
+<!-- SIDE NAVIGATION -->
+<nav id="side-nav">
+  <div class="nav-logo">V</div>
+  <div class="nav-item active" data-section="hero" onclick="scrollTo('hero')">
+    <span class="nav-num">1</span>
+  </div>
+  <div class="nav-item" data-section="exec" onclick="scrollTo('exec')">
+    <span class="nav-num">2</span>
+  </div>
+  <div class="nav-item" data-section="company" onclick="scrollTo('company')">
+    <span class="nav-num">3</span>
+  </div>
+  <div class="nav-item" data-section="financials" onclick="scrollTo('financials')">
+    <span class="nav-num">4</span>
+  </div>
+  <div class="nav-item" data-section="industry" onclick="scrollTo('industry')">
+    <span class="nav-num">5</span>
+  </div>
+  <div class="nav-item" data-section="bears" onclick="scrollTo('bears')">
+    <span class="nav-num">6</span>
+  </div>
+  <div class="nav-item" data-section="valuation" onclick="scrollTo('valuation')">
+    <span class="nav-num">7</span>
+  </div>
+  <div class="nav-item" data-section="conclusion" onclick="scrollTo('conclusion')">
+    <span class="nav-num">8</span>
+  </div>
+</nav>
+
+<!-- POPUP OVERLAY -->
+<div class="popup-overlay" id="popup-overlay" onclick="closePopup(event)">
+  <div class="popup-content" id="popup-content">
+    <button class="popup-close" onclick="closePopup(event,true)">&times;</button>
+    <div id="popup-body"></div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- MAIN CONTENT -->
+<!-- ============================================================ -->
+<div id="main">
+
+<!-- ============================================================ -->
+<!-- SECTION 1: HERO -->
+<!-- ============================================================ -->
+<section class="section" id="hero">
+<div class="section-inner">
+  <div class="hero-ticker">NYSE: VEEV &nbsp;|&nbsp; Veeva Systems Inc.</div>
+  <h1 class="hero-title">Veeva Systems — <span style="color:var(--teal)">Long</span> Investment Thesis</h1>
+  <div class="hero-subtitle">Perplexity Stock Pitch Competition 2026 &nbsp;|&nbsp; March 30 – April 3 &nbsp;|&nbsp; Finals April 11</div>
+  <div class="hero-author">Sankadithya Dhatchinamoorthi &nbsp;|&nbsp; George Mason University</div>
+
+  <div class="live-price-block">
+    <div class="live-dot"></div>
+    <div>
+      <div style="font-size:11px;color:var(--text-muted)">VEEV LIVE</div>
+      <div class="live-price" id="live-price">$175.67</div>
+    </div>
+    <div>
+      <div class="live-change down" id="live-change">-$0.28 (-0.16%)</div>
+      <div class="live-ts" id="live-ts">As of Mar 31, 2026 8:00 PM EDT</div>
+    </div>
+  </div>
+
+  <div class="kpi-bar">
+    <div class="kpi-card">
+      <div class="kpi-label">Share Price</div>
+      <div class="kpi-value counter" data-target="175.67" data-prefix="$">$0</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">Market Cap</div>
+      <div class="kpi-value counter" data-target="28.9" data-prefix="$" data-suffix="B">$0</div>
+    </div>
+    <div class="kpi-card teal">
+      <div class="kpi-label">Fwd P/E (NTM)</div>
+      <div class="kpi-value counter" data-target="18.6" data-suffix="x">0</div>
+      <div class="kpi-sub">vs. 5-yr avg 54x</div>
+    </div>
+    <div class="kpi-card positive">
+      <div class="kpi-label">FCF Margin</div>
+      <div class="kpi-value counter" data-target="44.3" data-suffix="%">0</div>
+    </div>
+    <div class="kpi-card gold">
+      <div class="kpi-label">Net Cash</div>
+      <div class="kpi-value counter" data-target="6.5" data-prefix="$" data-suffix="B">$0</div>
+      <div class="kpi-sub">23% of mkt cap</div>
+    </div>
+    <div class="kpi-card positive">
+      <div class="kpi-label">Analyst Upside</div>
+      <div class="kpi-value counter" data-target="51" data-prefix="+" data-suffix="%">0</div>
+      <div class="kpi-sub">Avg PT $265</div>
+    </div>
+  </div>
+
+  <div class="variant-box">
+    <div class="variant-label">Variant Perception</div>
+    <div class="variant-text">Salesforce competition is a <strong>cyclical headwind being priced as structural</strong>, while AI monetization and R&D cloud expansion provide <strong>asymmetric upside</strong> not reflected in current estimates.</div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 2: EXECUTIVE SUMMARY -->
+<!-- ============================================================ -->
+<section class="section" id="exec">
+<div class="section-inner reveal">
+  <span class="section-label">02 — Executive Summary</span>
+  <h2>Three Core Pillars</h2>
+
+  <div class="card-grid cols-3">
+    <!-- Pillar 1 -->
+    <div class="thesis-card" onclick="showPillarPopup(1)">
+      <div class="card-icon" style="background:var(--teal-glow);color:var(--teal)">📉</div>
+      <div class="card-title">Valuation Reset</div>
+      <div class="card-text">18.6x fwd P/E vs. 5-yr avg 54x — <strong>cheapest since IPO</strong> on quality-adjusted basis. P/E compressed 67% while FCF margin expanded to 44.3%.</div>
+      <div class="card-evidence">
+        <strong>Key Evidence:</strong> $6.5B net cash = 23% of market cap. Price/FCF 18.8x on FY2027E. EV/EBITDA compressed from 63x (FY2024) to 13.8x (FY2027E). $2B buyback authorized Feb 2026.
+        <br><a href="https://perplexity.ai/finance/VEEV" target="_blank" class="src-link">Perplexity Finance</a> &nbsp;
+        <a href="https://simplywall.st/stocks/us/healthcare/nyse-veev/veeva-systems/news/is-it-time-to-reassess-veeva-systems-veev-after-recent-share-1" target="_blank" class="src-link">Simply Wall St</a>
+      </div>
+    </div>
+    <!-- Pillar 2 -->
+    <div class="thesis-card" onclick="showPillarPopup(2)">
+      <div class="card-icon" style="background:var(--green-bg);color:var(--green)">🏰</div>
+      <div class="card-title">Platform Moat</div>
+      <div class="card-text">Salesforce threat is cyclical, not structural. Veeva winning <strong>14 of 20</strong> top pharma CRM decisions. 140 Vault CRM customers live, $10M+ switching costs.</div>
+      <div class="card-evidence">
+        <strong>Key Evidence:</strong> 7 of top-20 pharma committed to Vault CRM vs. ~2 for Salesforce. 900M+ HCP records in Veeva Network. AI agents free through 2030. CRM EOS pulled to Dec 2029 (ahead of schedule).
+        <br><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank" class="src-link">Q4 FY2026 Earnings</a> &nbsp;
+        <a href="https://intuitionlabs.ai/articles/veeva-vault-vs-salesforce-life-sciences-crm" target="_blank" class="src-link">IntuitionLabs</a>
+      </div>
+    </div>
+    <!-- Pillar 3 -->
+    <div class="thesis-card" onclick="showPillarPopup(3)">
+      <div class="card-icon" style="background:var(--gold-bg);color:var(--gold)">🤖</div>
+      <div class="card-title">AI Optionality</div>
+      <div class="card-text">AI monetization (FY2028+) is <strong>free upside</strong> not in consensus estimates. Anthropic partnership live, pharma AI market growing to $25B by 2030.</div>
+      <div class="card-evidence">
+        <strong>Key Evidence:</strong> Content AI (PromoMats) live with clear ROI. Safety AI agents launching April 2026. Token-based pricing model. CEO: "Customers want us to win in AI."
+        <br><a href="https://app.cbinsights.com/research/generative-ai-healthcare-life-sciences-market-map/" target="_blank" class="src-link">CB Insights GenAI Map</a> &nbsp;
+        <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank" class="src-link">Earnings Transcript</a>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:40px">Near-Term Catalysts</h3>
+  <div class="catalyst-timeline">
+    <div class="catalyst-item soon">
+      <div class="catalyst-date">Apr 2026</div>
+      <div class="catalyst-text">Safety AI Agent Launches</div>
+    </div>
+    <div class="catalyst-item soon">
+      <div class="catalyst-date">May 2026</div>
+      <div class="catalyst-text">Q1 FY2027 Earnings<br>(Expected beat)</div>
+    </div>
+    <div class="catalyst-item">
+      <div class="catalyst-date">Mid-2026</div>
+      <div class="catalyst-text">Remaining Top-20<br>CRM Decisions (~5)</div>
+    </div>
+    <div class="catalyst-item">
+      <div class="catalyst-date">H2 2026</div>
+      <div class="catalyst-text">$2B Buyback<br>Execution Begins</div>
+    </div>
+    <div class="catalyst-item">
+      <div class="catalyst-date">FY2028</div>
+      <div class="catalyst-text">AI Revenue<br>Begins Contributing</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 3: COMPANY OVERVIEW -->
+<!-- ============================================================ -->
+<section class="section" id="company">
+<div class="section-inner reveal">
+  <span class="section-label">03 — Company Overview</span>
+  <h2>Platform Architecture</h2>
+  <p style="color:var(--text-secondary);margin-bottom:24px;font-size:14px">
+    The dominant vertical SaaS platform in life sciences. Founded 2007 by <a href="https://perplexity.ai/finance/VEEV" target="_blank">Peter Gassner</a> (ex-Salesforce SVP). Converted to Public Benefit Corporation in 2021. Serving <strong style="color:var(--text-primary)">1,552 customers</strong> across pharma, biotech, and medtech.
+  </p>
+
+  <div class="platform-diagram">
+    <div class="platform-cloud">
+      <div class="cloud-icon">💊</div>
+      <div class="cloud-name">Commercial Cloud</div>
+      <div class="cloud-products">Vault CRM · PromoMats · MedComms<br>Crossix · Network · OpenData</div>
+      <div class="cloud-rev">$375M/q (~45% rev)</div>
+    </div>
+    <div class="platform-cloud">
+      <div class="cloud-icon">🔬</div>
+      <div class="cloud-name">R&D Cloud</div>
+      <div class="cloud-products">Vault CTMS · EDC · eTMF · Safety<br>RegulatoryOne · QMS · LIMS · RTSM</div>
+      <div class="cloud-rev">$461M/q (~55% rev)</div>
+    </div>
+    <div class="platform-cloud">
+      <div class="cloud-icon">📊</div>
+      <div class="cloud-name">Data Cloud</div>
+      <div class="cloud-products">Veeva Network (900M+ HCP records)<br>OpenData · Crossix RWE · Link</div>
+      <div class="cloud-rev">Embedded across both</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:36px">FY2025 vs FY2026 Comparison</h3>
+  <table class="data-table">
+    <thead><tr><th>Metric</th><th>FY2025</th><th>FY2026</th><th>YoY Change</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://perplexity.ai/finance/VEEV" target="_blank">Total Revenue</a></td><td>$2.75B</td><td>$3.19B</td><td class="positive">+16.3%</td></tr>
+      <tr><td>Subscription Revenue</td><td>$2.28B</td><td>$2.68B</td><td class="positive">+17.5%</td></tr>
+      <tr><td>Subscription Gross Margin</td><td>85.8%</td><td>86.4%</td><td class="positive">+60 bps</td></tr>
+      <tr><td>Operating Margin (GAAP)</td><td>25.2%</td><td>28.7%</td><td class="positive">+350 bps</td></tr>
+      <tr><td>Free Cash Flow</td><td>$1.07B</td><td>$1.39B</td><td class="positive">+29.9%</td></tr>
+      <tr><td>FCF Margin</td><td>39.7%</td><td>44.3%</td><td class="positive">+460 bps</td></tr>
+      <tr><td>Total Customers</td><td>1,477</td><td>1,552</td><td class="positive">+5.1%</td></tr>
+      <tr><td>Net Cash</td><td>$5.07B</td><td>$6.46B</td><td class="positive">+$1.4B</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top:32px">Segment Revenue Breakdown (Q4 FY2026)</h3>
+  <table class="data-table">
+    <thead><tr><th>Segment</th><th>Q4 Revenue</th><th>% of Total</th><th>8Q Growth</th><th>Trend</th></tr></thead>
+    <tbody>
+      <tr><td>Commercial Subs</td><td>$327M</td><td>39%</td><td class="positive">+25%</td><td>Stable; Crossix acceleration</td></tr>
+      <tr><td>R&D Subs</td><td>$381M</td><td>46%</td><td class="positive">+40%</td><td>Fastest growing; RTSM/Safety ramp</td></tr>
+      <tr><td>Commercial Services</td><td>$48M</td><td>6%</td><td>Flat</td><td>Low-margin; stable</td></tr>
+      <tr><td>R&D Services</td><td>$81M</td><td>10%</td><td class="positive">+19%</td><td>Implementation support</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:8px"><a href="https://perplexity.ai/finance/VEEV" target="_blank" class="src-link">Source: Perplexity Finance — VEEV</a></div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 4: FINANCIAL ANALYSIS -->
+<!-- ============================================================ -->
+<section class="section" id="financials">
+<div class="section-inner reveal">
+  <span class="section-label">04 — Financial Analysis</span>
+  <h2>Revenue Trajectory & Profitability</h2>
+
+  <div class="card-grid cols-2">
+    <div class="chart-container">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">8-Quarter Revenue ($M)</div>
+          <div class="chart-subtitle">$650M → $836M, +16% YoY in FY2026</div>
+        </div>
+        <a href="https://perplexity.ai/finance/VEEV" target="_blank" class="src-link" style="font-size:10px">Perplexity Finance</a>
+      </div>
+      <div style="position:relative;height:260px"><canvas id="revenueChart"></canvas></div>
+    </div>
+    <div class="chart-container">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">5-Year Margin Expansion</div>
+          <div class="chart-subtitle">Gross, Operating, and FCF margins</div>
+        </div>
+      </div>
+      <div style="position:relative;height:260px"><canvas id="marginChart"></canvas></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px">Earnings Beat Track Record — <span style="color:var(--green)">6/6 Revenue Beats</span></h3>
+  <table class="data-table">
+    <thead><tr><th>Quarter</th><th>Rev Actual</th><th>Rev Est</th><th>Beat</th><th>Post-Earnings Move</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Q2 FY2025</a></td><td>$676M</td><td>$668M</td><td class="positive">+1.3%</td><td class="positive">+8.9%</td></tr>
+      <tr><td><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Q3 FY2025</a></td><td>$699M</td><td>$684M</td><td class="positive">+2.2%</td><td class="positive">+8.1%</td></tr>
+      <tr><td><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Q4 FY2025</a></td><td>$721M</td><td>$699M</td><td class="positive">+3.1%</td><td class="positive">+7.4%</td></tr>
+      <tr><td><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Q2 FY2026</a></td><td>$789M</td><td>$768M</td><td class="positive">+2.7%</td><td class="negative">-7.2%</td></tr>
+      <tr><td><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Q3 FY2026</a></td><td>$811M</td><td>$793M</td><td class="positive">+2.3%</td><td class="negative">-9.8%</td></tr>
+      <tr><td><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Q4 FY2026</a></td><td>$836M</td><td>$811M</td><td class="positive">+3.1%</td><td class="positive">+4.0%</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top:32px">Balance Sheet Fortress</h3>
+  <div class="kpi-bar">
+    <div class="kpi-card gold" data-tip="Cash + ST Investments − Total Debt. 23% of market cap.">
+      <div class="kpi-label">Net Cash</div>
+      <div class="kpi-value counter" data-target="6.46" data-prefix="$" data-suffix="B">$0</div>
+    </div>
+    <div class="kpi-card positive" data-tip="FY2026 LTM free cash flow; 44.3% FCF margin.">
+      <div class="kpi-label">Free Cash Flow</div>
+      <div class="kpi-value counter" data-target="1.39" data-prefix="$" data-suffix="B">$0</div>
+    </div>
+    <div class="kpi-card" data-tip="Virtually no debt: D/E = 0.012x. Total debt only $96M.">
+      <div class="kpi-label">Debt / Equity</div>
+      <div class="kpi-value">0.012x</div>
+    </div>
+    <div class="kpi-card teal" data-tip="Strong liquidity with 4.89x current ratio.">
+      <div class="kpi-label">Current Ratio</div>
+      <div class="kpi-value">4.89x</div>
+    </div>
+    <div class="kpi-card positive" data-tip="Return on invested capital expanded to 31.9%.">
+      <div class="kpi-label">ROIC</div>
+      <div class="kpi-value counter" data-target="31.9" data-suffix="%">0</div>
+    </div>
+    <div class="kpi-card gold" data-tip="$2B share buyback authorized Feb 2026.">
+      <div class="kpi-label">Buyback</div>
+      <div class="kpi-value">$2.0B</div>
+    </div>
+  </div>
+  <div><a href="https://perplexity.ai/finance/VEEV" target="_blank" class="src-link">Source: Perplexity Finance — VEEV</a></div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 5: INDUSTRY TAILWINDS & AI -->
+<!-- ============================================================ -->
+<section class="section" id="industry">
+<div class="section-inner reveal">
+  <span class="section-label">05 — Industry Tailwinds & AI</span>
+  <h2>Expanding TAM & AI Opportunity</h2>
+
+  <div class="kpi-bar" style="margin-bottom:32px">
+    <div class="kpi-card" data-tip="Nova One Advisor: 10.49% CAGR to $69B by 2034">
+      <div class="kpi-label">Life Sciences IT</div>
+      <div class="kpi-value" style="font-size:1.1rem">$28B → <span style="color:var(--teal)">$69B</span></div>
+      <div class="kpi-sub"><a href="https://www.novaoneadvisor.com/report/life-sciences-it-market" target="_blank" class="src-link">10.5% CAGR to 2034</a></div>
+    </div>
+    <div class="kpi-card" data-tip="AI in pharma growing 600% per BusinessWire/R&M">
+      <div class="kpi-label">Pharma AI Market</div>
+      <div class="kpi-value" style="font-size:1.1rem">$4B → <span style="color:var(--gold)">$25B</span></div>
+      <div class="kpi-sub"><a href="https://www.businesswire.com/news/home/20251002061816/en/Artificial-Intelligence-In-Pharmaceutical-Industry-Research-Report-2025-Market-to-Explode-and-Reach-a-Value-of-Over-$65-Billion-by-2033-from-$3.24-Billion-in-2024---ResearchAndMarkets.com" target="_blank" class="src-link">~38% CAGR to 2030</a></div>
+    </div>
+    <div class="kpi-card" data-tip="48% of life sciences C-suite cite digital transformation as 2026 priority">
+      <div class="kpi-label">Execs Citing AI</div>
+      <div class="kpi-value" style="color:var(--teal)">78%</div>
+      <div class="kpi-sub"><a href="https://www.deloitte.com/us/en/insights/industry/health-care/life-sciences-and-health-care-industry-outlooks/2026-life-sciences-executive-outlook.html" target="_blank" class="src-link">Deloitte 2026 Survey</a></div>
+    </div>
+    <div class="kpi-card" data-tip="Only 10.7% of companies fully implemented AI in clinical ops — massive runway">
+      <div class="kpi-label">AI Adoption Gap</div>
+      <div class="kpi-value" style="color:var(--terra)">10.7%</div>
+      <div class="kpi-sub">Fully adopted in clinical</div>
+    </div>
+  </div>
+
+  <h3>AI Product Roadmap</h3>
+  <div class="ai-grid">
+    <div class="ai-card">
+      <div class="ai-card-header">
+        <div class="ai-card-title">Content AI (PromoMats)</div>
+        <span class="badge live">LIVE</span>
+      </div>
+      <div class="ai-card-desc">Faster compliant content = faster drug launches = direct top-line impact for customers. "ROI is just very clear." — <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">CEO, Q4 Call</a></div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-header">
+        <div class="ai-card-title">Safety AI Agents</div>
+        <span class="badge upcoming">APR 2026</span>
+      </div>
+      <div class="ai-card-desc">Replace expensive human labor in case intake/narrative generation. "Veeva is the only place you're gonna do that." — <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">CEO</a></div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-header">
+        <div class="ai-card-title">Agentic CRM</div>
+        <span class="badge free">FREE → 2030</span>
+      </div>
+      <div class="ai-card-desc">Pre-call intelligence, voice, free-text AI. Competitive moat vs. Salesforce. "Fastest path to Agentic CRM." — <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Paul Shawah, EVP</a></div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-header">
+        <div class="ai-card-title">Migration AI</div>
+        <span class="badge early">EARLY STAGE</span>
+      </div>
+      <div class="ai-card-desc">Reduce $4–15M migration costs; accelerate Vault CRM transitions. "A great use case for AI automation." — <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">CEO</a></div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px">CEO on AI Strategy</h3>
+  <blockquote>
+    "Our customers really want us to win in AI applications, we have a right to win, and we just have to execute."
+    <cite>— Peter Gassner, CEO | <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Q4 FY2026 Earnings Call, March 4, 2026</a></cite>
+  </blockquote>
+  <blockquote>
+    "AI is not replacing software. Core systems of record, like SAP, Workday, or Veeva — these are essential. The word is symbiotic."
+    <cite>— Peter Gassner, CEO | <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Q4 FY2026 Earnings Call</a></cite>
+  </blockquote>
+
+  <div class="edge-box">
+    <div class="edge-title">Analytical Edge: Health Informatics Perspective</div>
+    <p style="font-size:13.5px;color:var(--text-secondary);line-height:1.7">
+      Veeva's Vault platform is natively built for <strong style="color:var(--text-primary)">21 CFR Part 11</strong> compliance (electronic records/signatures), <strong style="color:var(--text-primary)">ICH E6 R3</strong> (GCP modernization — finalized 2025), and <strong style="color:var(--text-primary)">HL7/FHIR</strong> interoperability standards. This regulatory integration creates a moat that generalist platforms cannot replicate without years of domain-specific investment. The 2025 ICH E6 R3 update — moving risk-based monitoring from guidance to inspection expectation — directly increases demand for Vault CTMS.
+    </p>
+    <div style="margin-top:8px">
+      <a href="https://www.lambda-cro.com/clinical-trials-regulatory-developments-2025/" target="_blank" class="src-link">Lambda CRO</a> &nbsp;
+      <a href="https://app.cbinsights.com/research/generative-ai-healthcare-life-sciences-market-map/" target="_blank" class="src-link">CB Insights GenAI Map</a> &nbsp;
+      <a href="https://www.deloitte.com/us/en/insights/industry/health-care/life-sciences-and-health-care-industry-outlooks/2026-life-sciences-executive-outlook.html" target="_blank" class="src-link">Deloitte 2026</a> &nbsp;
+      <a href="https://www.novaoneadvisor.com/report/life-sciences-it-market" target="_blank" class="src-link">Nova One Advisor</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 6: BEAR CASE REBUTTAL -->
+<!-- ============================================================ -->
+<section class="section" id="bears">
+<div class="section-inner reveal">
+  <span class="section-label">06 — Bear Case Rebuttal</span>
+  <h2>Every Bear Has a Counter</h2>
+
+  <!-- Row 1 -->
+  <div class="bear-bull-row">
+    <div class="bear-side">
+      <div class="side-label">🐻 Bear: Salesforce "100+ Customers"</div>
+      <p>Salesforce CRO claims "100+ life sciences customers" moving off Veeva. Novartis (50K+ users), Pfizer, AbbVie selected Salesforce. <a href="https://diginomica.com/salesforce-vs-veeva-games-afoot-and-life-sciences-battleground-hotting" target="_blank">Diginomica</a></p>
+    </div>
+    <div class="bull-side">
+      <div class="side-label">🐂 Bull: 14/20 Top Pharma → Veeva</div>
+      <p>Veeva expects <strong>14 of top 20 pharma on Vault CRM</strong> (7 committed vs. ~2 Salesforce). 140 live. Custom Salesforce builds face execution risk — "Not all going so well." <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Q4 Earnings</a></p>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div class="bear-bull-row">
+    <div class="bear-side">
+      <div class="side-label">🐻 Bear: Goldman Sachs Sell — $190 PT</div>
+      <p>Goldman double-downgraded to Sell. "Low-to-mid teens growth at $3B+ scale will be structurally difficult." <a href="https://www.investing.com/news/analyst-ratings/goldman-sachs-downgrades-veeva-systems-stock-rating-to-sell-on-growth-concerns-93CH-4444072" target="_blank">Investing.com</a></p>
+    </div>
+    <div class="bull-side">
+      <div class="side-label">🐂 Bull: 11/15 Analysts = Buy, Avg PT $265</div>
+      <p>Goldman analyst has 42.9% success rate. 73% of analysts are bullish with avg target implying <strong>+51% upside</strong>. Wells Fargo highest at $317. <a href="https://perplexity.ai/finance/VEEV" target="_blank">Perplexity Finance</a></p>
+    </div>
+  </div>
+
+  <!-- Row 3 -->
+  <div class="bear-bull-row">
+    <div class="bear-side">
+      <div class="side-label">🐻 Bear: Herb Greenberg Red Flag</div>
+      <p>New 10-K disclosure: "Salesforce... announced certain large customers have committed" to Salesforce. Billings guidance dropped. <a href="https://www.herbgreenberg.com/p/red-flag-alert-why-veevas-big-bet" target="_blank">Herb Greenberg</a></p>
+    </div>
+    <div class="bull-side">
+      <div class="side-label">🐂 Bull: Transparent + Conservative</div>
+      <p>10-K disclosure reflects legal compliance, not hidden risk. FY2026 delivered 16.3% growth — beating every quarterly estimate. Management has consistently under-promised and over-delivered.</p>
+    </div>
+  </div>
+
+  <!-- Row 4 -->
+  <div class="bear-bull-row">
+    <div class="bear-side">
+      <div class="side-label">🐻 Bear: Pharma R&D Spending Down 3.6%</div>
+      <p>Top-16 pharma R&D declined to $159B. NIH funding cut ~28%. Biotech VC at 3-year low. <a href="https://www.biospace.com/business/pharma-r-d-spend-drops-3-6-as-pipeline-prioritizations-take-shape" target="_blank">BioSpace</a></p>
+    </div>
+    <div class="bull-side">
+      <div class="side-label">🐂 Bull: IT Spend Is Protected</div>
+      <p>Despite macro pressure, Veeva delivered 16.3% growth. Pharma M&A: $91.9B in first 3Q of 2025 (vs. $61.7B full-year 2024). AI-driven platforms that cut development costs are the <em>last</em> to be cut.</p>
+    </div>
+  </div>
+
+  <!-- Row 5 -->
+  <div class="bear-bull-row">
+    <div class="bear-side">
+      <div class="side-label">🐻 Bear: Short Interest Surged +26.4%</div>
+      <p>6.33M shares short (4.2% of float) — rose 26% post-earnings beat, suggesting sophisticated bears positioning for future guidance miss. <a href="https://www.sahmcapital.com/news/content/how-is-the-market-feeling-about-veeva-systems-inc-2026-03-06" target="_blank">Sahm Capital</a></p>
+    </div>
+    <div class="bull-side">
+      <div class="side-label">🐂 Bull: Short Squeeze Potential</div>
+      <p>4.2% short interest is low in absolute terms. Combined with $2B buyback authorization, any positive catalyst (top-20 CRM wins, AI revenue disclosure) creates asymmetric squeeze risk for shorts.</p>
+    </div>
+  </div>
+
+  <!-- Row 6 -->
+  <div class="bear-bull-row">
+    <div class="bear-side">
+      <div class="side-label">🐻 Bear: AI Disruption Risk</div>
+      <p>Foundation models could commoditize SaaS. LLM providers may go direct to life sciences customers. AI reduces need for manual data entry in Veeva systems.</p>
+    </div>
+    <div class="bull-side">
+      <div class="side-label">🐂 Bull: AI Is Symbiotic, Not Cannibalistic</div>
+      <p>CEO: "Core systems of record won't be replaced." Anthropic partnership. 900M+ HCP records = <strong>AI training data moat</strong>. Veeva is the application layer above LLMs. AI agents free through 2030. <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank">Earnings Transcript</a></p>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px">CRM Migration Scorecard</h3>
+  <table class="data-table">
+    <thead><tr><th>Metric</th><th>Veeva Vault CRM</th><th>Salesforce LS Cloud</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>Top-20 Committed</td><td class="positive">~14 expected (7 live)</td><td class="negative">~2–3</td><td><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank" class="src-link">Q4 Earnings</a></td></tr>
+      <tr><td>Total Customers Live</td><td class="positive">140+</td><td>Not disclosed</td><td><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank" class="src-link">Q4 Earnings</a></td></tr>
+      <tr><td>AI Agents</td><td class="positive">Free through 2030</td><td>Extra licensing cost</td><td><a href="https://intuitionlabs.ai/articles/veeva-vault-vs-salesforce-life-sciences-crm" target="_blank" class="src-link">IntuitionLabs</a></td></tr>
+      <tr><td>HCP Data Asset</td><td class="positive">900M+ records</td><td>Via IQVIA partnership</td><td><a href="https://intuitionlabs.ai/articles/veeva-vault-vs-salesforce-life-sciences-crm" target="_blank" class="src-link">IntuitionLabs</a></td></tr>
+      <tr><td>Switching Cost</td><td class="positive">$10M+ per customer</td><td>Net-new build</td><td><a href="https://diginomica.com/salesforce-vs-veeva-games-afoot-and-life-sciences-battleground-hotting" target="_blank" class="src-link">Diginomica</a></td></tr>
+      <tr><td>EOS Deadline</td><td>Dec 2029 (pulled in 9mo)</td><td>N/A</td><td><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank" class="src-link">Q4 Earnings</a></td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 7: VALUATION & SCENARIOS -->
+<!-- ============================================================ -->
+<section class="section" id="valuation">
+<div class="section-inner reveal">
+  <span class="section-label">07 — Valuation & Scenarios</span>
+  <h2>Cheapest in 5+ Years</h2>
+
+  <div class="card-grid cols-2">
+    <div class="chart-container">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Historical P/E Compression</div>
+          <div class="chart-subtitle">74.2x (FY2019) → 18.6x (Fwd NTM) — down 75%</div>
+        </div>
+      </div>
+      <div style="position:relative;height:240px"><canvas id="peChart"></canvas></div>
+    </div>
+    <div class="chart-container">
+      <div class="chart-header">
+        <div>
+          <div class="chart-title">Scenario Analysis — 12-Month Targets</div>
+          <div class="chart-subtitle">Current price $175.67</div>
+        </div>
+      </div>
+      <div class="scenario-chart">
+        <div class="scenario-row">
+          <div class="scenario-label" style="color:var(--green)">Bull</div>
+          <div class="scenario-bar-bg">
+            <div class="scenario-bar" style="width:0%;background:linear-gradient(90deg,var(--green-dim),var(--green))" data-width="100%">$330</div>
+            <div class="current-marker" style="left:53.2%"></div>
+          </div>
+          <div class="scenario-value" style="color:var(--green)">+88%</div>
+        </div>
+        <div class="scenario-row">
+          <div class="scenario-label" style="color:var(--teal)">Base</div>
+          <div class="scenario-bar-bg">
+            <div class="scenario-bar" style="width:0%;background:linear-gradient(90deg,var(--teal-dim),var(--teal))" data-width="84.2%">$278</div>
+            <div class="current-marker" style="left:53.2%"></div>
+          </div>
+          <div class="scenario-value" style="color:var(--teal)">+58%</div>
+        </div>
+        <div class="scenario-row">
+          <div class="scenario-label" style="color:var(--terra)">Bear</div>
+          <div class="scenario-bar-bg">
+            <div class="scenario-bar" style="width:0%;background:linear-gradient(90deg,var(--terra-dim),var(--terra))" data-width="63.6%">$210</div>
+            <div class="current-marker" style="left:53.2%"></div>
+          </div>
+          <div class="scenario-value" style="color:var(--terra)">+20%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px">Forward Estimates (Consensus)</h3>
+  <table class="data-table">
+    <thead><tr><th>Metric</th><th>FY2026 (Actual)</th><th>FY2027E</th><th>FY2028E</th></tr></thead>
+    <tbody>
+      <tr><td><a href="https://perplexity.ai/finance/VEEV" target="_blank">Revenue</a></td><td>$3.19B</td><td class="highlight">$3.60B (+13.5%)</td><td class="highlight">$4.04B (+12.3%)</td></tr>
+      <tr><td>EBITDA</td><td>$1.44B</td><td>$1.62B</td><td>$1.84B</td></tr>
+      <tr><td>Net Income</td><td>$891M</td><td>$1.05B</td><td>$1.17B</td></tr>
+      <tr><td>EPS (Diluted)</td><td>$8.32</td><td class="highlight">$9.45</td><td class="highlight">$10.62</td></tr>
+      <tr><td>FCF</td><td>$1.33B</td><td>$1.53B</td><td>$1.72B</td></tr>
+      <tr><td>P/E (at $175.67)</td><td>21.1x</td><td class="positive">18.6x</td><td class="positive">16.6x</td></tr>
+      <tr><td>EV/EBITDA</td><td>15.6x</td><td class="positive">13.8x</td><td class="positive">12.2x</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="margin-top:32px">Peer Comparison</h3>
+  <table class="data-table">
+    <thead><tr><th>Company</th><th>Ticker</th><th>Mkt Cap</th><th>P/E</th><th>Rev Growth</th><th>FCF Margin</th></tr></thead>
+    <tbody>
+      <tr style="background:var(--teal-glow)"><td><strong><a href="https://perplexity.ai/finance/VEEV" target="_blank">Veeva Systems</a></strong></td><td>VEEV</td><td>$28.9B</td><td class="highlight">18.6x (fwd)</td><td class="positive">+16.3%</td><td class="positive">44.3%</td></tr>
+      <tr><td>Salesforce</td><td>CRM</td><td>$174.9B</td><td>23.9x</td><td>+8.7%</td><td>~33%</td></tr>
+      <tr><td>IQVIA</td><td>IQV</td><td>$28.9B</td><td>21.8x</td><td>+3.2%</td><td>~15%</td></tr>
+      <tr><td>Oracle</td><td>ORCL</td><td>$423.2B</td><td>26.4x</td><td>+9.5%</td><td>~28%</td></tr>
+      <tr><td>Snowflake</td><td>SNOW</td><td>$52.1B</td><td>N/M</td><td>+28.0%</td><td>~5%</td></tr>
+      <tr><td>Doximity</td><td>DOCS</td><td>$4.4B</td><td>19.6x</td><td>+20.3%</td><td>~48%</td></tr>
+    </tbody>
+  </table>
+  <div style="margin-top:8px">
+    <a href="https://perplexity.ai/finance/VEEV" target="_blank" class="src-link">Perplexity Finance</a> &nbsp;
+    <a href="https://simplywall.st/stocks/us/healthcare/nyse-veev/veeva-systems/news/is-it-time-to-reassess-veeva-systems-veev-after-recent-share-1" target="_blank" class="src-link">Simply Wall St</a>
+  </div>
+</div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 8: CONCLUSION -->
+<!-- ============================================================ -->
+<section class="section" id="conclusion">
+<div class="section-inner reveal">
+  <span class="section-label">08 — Conclusion</span>
+  <h2>Investment Recommendation</h2>
+
+  <div class="variant-box" style="margin-bottom:32px">
+    <div class="variant-label">Variant Perception — Reiterated</div>
+    <div class="variant-text">Salesforce competition is a <strong>cyclical headwind being priced as structural</strong>, while AI monetization and R&D cloud expansion provide <strong>asymmetric upside</strong> not reflected in current estimates. The market is offering a best-in-class vertical SaaS platform at a multi-year valuation trough.</div>
+  </div>
+
+  <div class="rec-card">
+    <div class="rec-badge">LONG VEEV</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:20px;margin-top:20px;text-align:center;position:relative;z-index:1">
+      <div>
+        <div class="kpi-label">Entry Price</div>
+        <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700">~$175</div>
+      </div>
+      <div>
+        <div class="kpi-label">Base Target</div>
+        <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--teal)">$278</div>
+        <div style="font-size:13px;color:var(--teal)">+58% upside</div>
+      </div>
+      <div>
+        <div class="kpi-label">Bull Target</div>
+        <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--green)">$330</div>
+        <div style="font-size:13px;color:var(--green)">+88% upside</div>
+      </div>
+      <div>
+        <div class="kpi-label">Stop Loss</div>
+        <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--terra)">$155</div>
+        <div style="font-size:13px;color:var(--terra)">-11% downside</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px">Exit Criteria</h3>
+  <table class="data-table">
+    <thead><tr><th>Trigger</th><th>Threshold</th><th>Action</th></tr></thead>
+    <tbody>
+      <tr><td>Salesforce wins ≥ 8 of top 20 pharma</td><td>Currently ~2–3 wins</td><td class="negative">Reassess — platform moat weakened</td></tr>
+      <tr><td>FY2027 revenue misses guidance</td><td>Consensus $3.60B</td><td class="negative">Reduce position by 50%</td></tr>
+      <tr><td>Billings growth falls below 8%</td><td>Currently ~11%</td><td class="negative">Exit — signals FY2028 decel to single digits</td></tr>
+      <tr><td>Vault CRM migration failure</td><td>Any marquee public failure</td><td class="negative">Exit immediately</td></tr>
+      <tr><td>Stock hits bull target $330</td><td>+88% from entry</td><td class="positive">Take profits; trim 1/3 of position</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:40px;text-align:center">
+    <p style="font-size:14px;color:var(--text-secondary)">
+      Prepared for the <a href="https://perplexity.ai/finance/VEEV" target="_blank" style="color:var(--teal);font-weight:600">Perplexity Stock Pitch Competition 2026</a>
+    </p>
+    <p style="font-size:14px;color:var(--text-secondary);margin-top:4px">
+      Judges: <strong style="color:var(--text-primary)">Coatue</strong> ($70B AUM) &nbsp;·&nbsp; <strong style="color:var(--text-primary)">Third Point</strong> ($17B AUM) &nbsp;·&nbsp; $17,500 Prize Pool
+    </p>
+    <p style="font-size:14px;color:var(--text-secondary);margin-top:4px">
+      Author: <strong style="color:var(--text-primary)">Sankadithya Dhatchinamoorthi</strong> &nbsp;|&nbsp; George Mason University
+    </p>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> This presentation is for educational purposes only as part of the Perplexity Stock Pitch Competition 2026. It does not constitute financial advice, a solicitation, or a recommendation to buy or sell any security. All data sourced from public filings, Perplexity Finance, SEC filings (10-K FY2026), Q4 FY2026 Earnings Transcript (March 4, 2026), CB Insights, Deloitte, Nova One Advisor, and other publicly available sources cited throughout. Past performance is not indicative of future results. All forward-looking statements involve risk and uncertainty. The author may hold positions in securities discussed.
+  </div>
+</div>
+</section>
+
+</div><!-- /main -->
+
+<!-- ============================================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================================ -->
+<script>
+// ============================================================
+// NAVIGATION
+// ============================================================
+const sections = ['hero','exec','company','financials','industry','bears','valuation','conclusion'];
+const navItems = document.querySelectorAll('.nav-item');
+
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Intersection Observer for active section
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navItems.forEach(item => {
+        item.classList.toggle('active', item.dataset.section === id);
+      });
+    }
+  });
+}, { threshold: 0.3 });
+
+sections.forEach(id => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el);
+});
+
+// Progress bar
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = (scrollTop / docHeight) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  const activeIdx = sections.findIndex(id => {
+    const el = document.getElementById(id);
+    const rect = el.getBoundingClientRect();
+    return rect.top >= -200 && rect.top < window.innerHeight * 0.5;
+  });
+  let idx = activeIdx === -1 ? 0 : activeIdx;
+  if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+    e.preventDefault();
+    idx = Math.min(idx + 1, sections.length - 1);
+    scrollTo(sections[idx]);
+  } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+    e.preventDefault();
+    idx = Math.max(idx - 1, 0);
+    scrollTo(sections[idx]);
+  }
+});
+
+// ============================================================
+// REVEAL ANIMATIONS
+// ============================================================
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ============================================================
+// COUNTER ANIMATION
+// ============================================================
+function animateCounters() {
+  document.querySelectorAll('.counter').forEach(el => {
+    const target = parseFloat(el.dataset.target);
+    if (!target || el.dataset.animated) return;
+
+    const rect = el.getBoundingClientRect();
+    if (rect.top > window.innerHeight || rect.bottom < 0) return;
+
+    el.dataset.animated = '1';
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const decimals = String(target).includes('.') ? String(target).split('.')[1].length : 0;
+    const duration = 1200;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+      el.textContent = prefix + current.toFixed(decimals) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+}
+window.addEventListener('scroll', animateCounters);
+animateCounters();
+
+// ============================================================
+// POPUP SYSTEM
+// ============================================================
+function showPopup(html) {
+  document.getElementById('popup-body').innerHTML = html;
+  document.getElementById('popup-overlay').classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
+function closePopup(e, force) {
+  if (force || e.target === document.getElementById('popup-overlay')) {
+    document.getElementById('popup-overlay').classList.remove('visible');
+    document.body.style.overflow = '';
+  }
+}
+
+const pillarData = {
+  1: {
+    title: 'Valuation Reset — Deep Dive',
+    html: `<h3 style="color:var(--teal);margin-bottom:16px">Valuation Reset</h3>
+<p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px">VEEV trades at 18.6x forward P/E — its cheapest level since IPO on a quality-adjusted basis. The 5-year average P/E is 54x, meaning the stock has experienced a <strong style="color:var(--text-primary)">67% multiple compression</strong> while fundamentally improving: FCF margins expanded from 32% to 44.3%, ROIC grew to 31.9%, and the balance sheet accumulated $6.5B in net cash (23% of market cap).</p>
+<table class="data-table" style="margin:16px 0">
+<thead><tr><th>Metric</th><th>FY2019</th><th>FY2024</th><th>FY2026</th><th>FY2027E</th></tr></thead>
+<tbody>
+<tr><td>P/E</td><td>74.2x</td><td>64.4x</td><td>37.5x</td><td class="positive">18.6x</td></tr>
+<tr><td>EV/EBITDA</td><td>62.7x</td><td>63.8x</td><td>28.2x</td><td class="positive">13.8x</td></tr>
+<tr><td>FCF Margin</td><td>36.1%</td><td>38.6%</td><td>44.3%</td><td>42.6%</td></tr>
+</tbody>
+</table>
+<p style="font-size:12px;color:var(--text-muted)">The $2B buyback authorized in Feb 2026 provides additional downside support. Simply Wall St DCF estimates intrinsic value at ~$268.</p>
+<div style="margin-top:12px"><a href="https://perplexity.ai/finance/VEEV" target="_blank" class="src-link">Perplexity Finance</a> · <a href="https://simplywall.st/stocks/us/healthcare/nyse-veev/veeva-systems/news/is-it-time-to-reassess-veeva-systems-veev-after-recent-share-1" target="_blank" class="src-link">Simply Wall St</a></div>`
+  },
+  2: {
+    title: 'Platform Moat — Deep Dive',
+    html: `<h3 style="color:var(--green);margin-bottom:16px">Platform Moat</h3>
+<p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px">Veeva's "puzzle-piece" platform strategy creates compounding switching costs. Each additional product increases interoperability value and raises exit barriers. CEO Gassner explicitly compares this to Microsoft's desktop ecosystem lock-in.</p>
+<p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px"><strong style="color:var(--text-primary)">CRM Migration Scorecard:</strong> 140 customers live on Vault CRM (ahead of 125+ in prepared remarks). Two top-20 pharmas fully live. End-of-support pulled in 9 months to Dec 2029 — a confidence signal. Win rate outside top 20 expected even higher.</p>
+<blockquote style="margin:16px 0">"Every time they get more Veeva pieces, it more fits together in their puzzle... I think the way back in the day, you saw this with Microsoft on the desktop."<cite>— Peter Gassner, CEO</cite></blockquote>
+<p style="color:var(--text-secondary);line-height:1.7"><strong style="color:var(--text-primary)">Salesforce execution risk:</strong> Gassner has specific intelligence on one top-20 pharma with a "large number of development team contracted in India from a third-party system integrator" building a custom solution. EVP Paul Shawah expects some Salesforce-committed customers to return to Veeva.</p>
+<div style="margin-top:12px"><a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank" class="src-link">Q4 FY2026 Earnings</a> · <a href="https://intuitionlabs.ai/articles/veeva-vault-vs-salesforce-life-sciences-crm" target="_blank" class="src-link">IntuitionLabs</a> · <a href="https://diginomica.com/salesforce-vs-veeva-games-afoot-and-life-sciences-battleground-hotting" target="_blank" class="src-link">Diginomica</a></div>`
+  },
+  3: {
+    title: 'AI Optionality — Deep Dive',
+    html: `<h3 style="color:var(--gold);margin-bottom:16px">AI Optionality</h3>
+<p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px">AI monetization is not in FY2027 consensus estimates — it's pure option value. CFO Brian Van Wagener explicitly stated AI won't be "a major financial contributor this year." This means any AI revenue acceleration in FY2028+ represents upside surprise.</p>
+<p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px"><strong style="color:var(--text-primary)">Four AI vectors:</strong></p>
+<ul style="color:var(--text-secondary);line-height:2;padding-left:20px;margin-bottom:16px">
+<li><strong style="color:var(--text-primary)">Content AI</strong> — Farthest along; clear ROI (faster compliant content = faster drug launches)</li>
+<li><strong style="color:var(--text-primary)">Safety AI</strong> — Labor replacement; 2 agents launching April 2026. "Veeva is the only place."</li>
+<li><strong style="color:var(--text-primary)">Agentic CRM</strong> — Live today, free through 2030; strategic defense against Salesforce</li>
+<li><strong style="color:var(--text-primary)">Migration AI</strong> — Reduce implementation costs; accelerate Vault CRM transitions</li>
+</ul>
+<p style="color:var(--text-secondary);line-height:1.7">The pharma AI market is projected to grow from $4B (2025) to $25B (2030) — a 600% increase. Veeva has a formal Anthropic partnership and 900M+ HCP records as a proprietary training data moat.</p>
+<div style="margin-top:12px"><a href="https://app.cbinsights.com/research/generative-ai-healthcare-life-sciences-market-map/" target="_blank" class="src-link">CB Insights</a> · <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank" class="src-link">Earnings Transcript</a></div>`
+  }
+};
+
+function showPillarPopup(n) {
+  showPopup(pillarData[n].html);
+}
+
+// Expand thesis cards on click (toggle evidence)
+document.querySelectorAll('.thesis-card').forEach(card => {
+  card.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') return;
+    this.classList.toggle('expanded');
+  });
+});
+
+// ============================================================
+// LIVE PRICE FETCH
+// ============================================================
+async function fetchLivePrice() {
+  try {
+    const resp = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/VEEV?interval=1d&range=1d');
+    const data = await resp.json();
+    const price = data.chart.result[0].meta.regularMarketPrice;
+    const prevClose = data.chart.result[0].meta.chartPreviousClose;
+    const change = price - prevClose;
+    const pctChange = (change / prevClose) * 100;
+    
+    document.getElementById('live-price').textContent = '$' + price.toFixed(2);
+    const changeEl = document.getElementById('live-change');
+    const sign = change >= 0 ? '+' : '';
+    changeEl.textContent = sign + '$' + change.toFixed(2) + ' (' + sign + pctChange.toFixed(2) + '%)';
+    changeEl.className = 'live-change ' + (change >= 0 ? 'up' : 'down');
+    document.getElementById('live-ts').textContent = 'Live from Yahoo Finance · ' + new Date().toLocaleString();
+  } catch(e) {
+    // Fallback — keep static
+    document.getElementById('live-ts').textContent = 'As of Mar 31, 2026 · Static (API unavailable)';
+  }
+}
+fetchLivePrice();
+setInterval(fetchLivePrice, 60000);
+
+// ============================================================
+// CHARTS — Chart.js
+// ============================================================
+const chartFont = { family: "'Inter', sans-serif" };
+Chart.defaults.color = '#8b95b0';
+Chart.defaults.font.family = "'Inter', sans-serif";
+Chart.defaults.font.size = 12;
+
+// Revenue Chart
+const revenueCtx = document.getElementById('revenueChart');
+if (revenueCtx) {
+  new Chart(revenueCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Q1 FY25','Q2 FY25','Q3 FY25','Q4 FY25','Q1 FY26','Q2 FY26','Q3 FY26','Q4 FY26'],
+      datasets: [{
+        label: 'Revenue ($M)',
+        data: [650,676,699,721,759,789,811,836],
+        backgroundColor: ['#1a3a4a','#1a3a4a','#1a3a4a','#1a3a4a','#20808D','#20808D','#20808D','#20808D'],
+        borderRadius: 5,
+        borderSkipped: false,
+      },{
+        label: 'YoY Growth',
+        data: [null,null,null,null,16.7,16.7,16.0,16.0],
+        type: 'line',
+        borderColor: '#D19900',
+        backgroundColor: 'transparent',
+        pointBackgroundColor: '#D19900',
+        pointRadius: 5,
+        borderWidth: 2,
+        yAxisID: 'y1',
+        tension: 0.3,
+        spanGaps: true,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 1000, easing: 'easeOutQuart' },
+      plugins: {
+        legend: { display: true, position: 'top', labels: { boxWidth: 12, usePointStyle: true, padding: 16 } },
+        tooltip: {
+          backgroundColor: '#0f1628',
+          borderColor: '#1e2a4a',
+          borderWidth: 1,
+          titleColor: '#e8ecf4',
+          bodyColor: '#8b95b0',
+          padding: 12,
+          cornerRadius: 8,
+        }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { color: '#5a6580' } },
+        y: { 
+          grid: { color: '#1e2a4a' }, 
+          ticks: { color: '#5a6580', callback: v => '$' + v },
+          min: 600, max: 880
+        },
+        y1: {
+          position: 'right',
+          grid: { display: false },
+          ticks: { color: '#D19900', callback: v => v + '%' },
+          min: 10, max: 20
+        }
+      }
+    }
+  });
+}
+
+// Margin Chart
+const marginCtx = document.getElementById('marginChart');
+if (marginCtx) {
+  new Chart(marginCtx, {
+    type: 'line',
+    data: {
+      labels: ['FY2018','FY2019','FY2024','FY2025','FY2026'],
+      datasets: [{
+        label: 'Gross Margin',
+        data: [69.4,71.6,71.3,74.5,75.5],
+        borderColor: '#20808D',
+        backgroundColor: 'rgba(32,128,141,0.08)',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 5,
+        pointBackgroundColor: '#20808D',
+        borderWidth: 2.5,
+      },{
+        label: 'FCF Margin',
+        data: [32.4,36.1,38.6,39.7,44.3],
+        borderColor: '#D19900',
+        backgroundColor: 'rgba(209,153,0,0.05)',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 5,
+        pointBackgroundColor: '#D19900',
+        borderWidth: 2.5,
+      },{
+        label: 'Op Margin',
+        data: [22.9,25.8,18.2,25.2,28.7],
+        borderColor: '#437A22',
+        backgroundColor: 'rgba(67,122,34,0.05)',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 5,
+        pointBackgroundColor: '#437A22',
+        borderWidth: 2.5,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 1200, easing: 'easeOutQuart' },
+      plugins: {
+        legend: { position: 'top', labels: { boxWidth: 12, usePointStyle: true, padding: 16 } },
+        tooltip: {
+          backgroundColor: '#0f1628',
+          borderColor: '#1e2a4a',
+          borderWidth: 1,
+          padding: 12,
+          cornerRadius: 8,
+          callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y + '%' }
+        }
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: { grid: { color: '#1e2a4a' }, ticks: { callback: v => v + '%' }, min: 10, max: 85 }
+      }
+    }
+  });
+}
+
+// P/E Chart
+const peCtx = document.getElementById('peChart');
+if (peCtx) {
+  new Chart(peCtx, {
+    type: 'bar',
+    data: {
+      labels: ['FY2018','FY2019','FY2024','FY2025','FY2026','Fwd NTM'],
+      datasets: [{
+        label: 'P/E Ratio',
+        data: [64.1,74.2,64.4,54.0,37.5,18.6],
+        backgroundColor: ['#1a3a4a','#1a3a4a','#1a3a4a','#1a3a4a','#20808D','#437A22'],
+        borderRadius: 5,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 1000, easing: 'easeOutQuart' },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#0f1628', borderColor: '#1e2a4a', borderWidth: 1, padding: 12, cornerRadius: 8,
+          callbacks: { label: ctx => 'P/E: ' + ctx.parsed.y + 'x' }
+        }
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: { grid: { color: '#1e2a4a' }, ticks: { callback: v => v + 'x' }, min: 0, max: 80 }
+      }
+    }
+  });
+}
+
+// Animate scenario bars on scroll
+const scenarioObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.scenario-bar').forEach(bar => {
+        const w = bar.dataset.width;
+        setTimeout(() => { bar.style.width = w; }, 200);
+      });
+      scenarioObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.scenario-chart').forEach(el => scenarioObserver.observe(el));
+
+// ============================================================
+// KEYBOARD SHORTCUT HINT
+// ============================================================
+console.log('%c VEEV Pitch | Use Arrow Keys to navigate sections ', 'background:#20808D;color:#fff;padding:8px 16px;border-radius:4px;font-size:14px');
+</script>
+</body>
+</html>
