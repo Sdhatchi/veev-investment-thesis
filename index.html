@@ -512,7 +512,7 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
   <div class="hero-ticker">NYSE: VEEV &nbsp;|&nbsp; Veeva Systems Inc.</div>
   <h1 class="hero-title">Veeva Systems — <span style="color:var(--teal)">Long</span> Investment Thesis</h1>
   <div class="hero-subtitle">Perplexity Stock Pitch Competition 2026 &nbsp;|&nbsp; March 30 – April 3 &nbsp;|&nbsp; Finals April 11</div>
-  <div class="hero-author">Perplexity Stock Pitch Competition 2026</div>
+  <div class="hero-author">Thesis Date: March 31, 2026 &nbsp;|&nbsp; Entry Price: $175.67</div>
 
   <div class="live-price-block">
     <div class="live-dot"></div>
@@ -1563,7 +1563,9 @@ async function fetchLivePrice() {
     document.getElementById('live-ts').textContent = 'Live from Yahoo Finance · ' + new Date().toLocaleString();
   } catch(e) {
     // Fallback — keep static
-    document.getElementById('live-ts').textContent = 'As of March 31, 2026';
+    const now = new Date();
+    const opts = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' };
+    document.getElementById('live-ts').textContent = 'Live as of ' + now.toLocaleDateString('en-US', opts);
   }
 }
 fetchLivePrice();
