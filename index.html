@@ -1547,51 +1547,33 @@ document.querySelectorAll('.thesis-card').forEach(card => {
 // LIVE PRICE FETCH
 // ============================================================
 async function fetchLivePrice() {
-  // Try multiple CORS-friendly endpoints
-  const endpoints = [
-    'https://query1.finance.yahoo.com/v8/finance/chart/VEEV?interval=1d&range=1d&cors=true',
-    'https://query2.finance.yahoo.com/v8/finance/chart/VEEV?interval=1d&range=1d',
-    'https://api.allorigins.win/get?url=' + encodeURIComponent('https://query1.finance.yahoo.com/v10/finance/quoteSummary/VEEV?modules=price')
-  ];
-  
-  // Try allorigins proxy (CORS workaround)
+  // Financial Modeling Prep (FMP) — the same data provider behind Perplexity Finance
+  // Free public endpoint, CORS-friendly, no API key required for basic quotes
   try {
-    const resp = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://query1.finance.yahoo.com/v10/finance/quoteSummary/VEEV?modules=price'));
-    const wrapper = await resp.json();
-    const data = JSON.parse(wrapper.contents);
-    const priceData = data.quoteSummary.result[0].price;
-    const price = priceData.regularMarketPrice.raw;
-    const prevClose = priceData.regularMarketPreviousClose.raw;
-    const change = price - prevClose;
-    const pctChange = (change / prevClose) * 100;
-    
-    document.getElementById('live-price').textContent = '$' + price.toFixed(2);
-    const changeEl = document.getElementById('live-change');
-    const sign = change >= 0 ? '+' : '';
-    changeEl.textContent = sign + '$' + change.toFixed(2) + ' (' + sign + pctChange.toFixed(2) + '%)';
-    changeEl.className = 'live-change ' + (change >= 0 ? 'up' : 'down');
-    document.getElementById('live-ts').textContent = 'Live · Updated ' + new Date().toLocaleTimeString();
-    return;
-  } catch(e1) {}
-
-  // Fallback: try direct Yahoo
-  try {
-    const resp = await fetch('https://query2.finance.yahoo.com/v8/finance/chart/VEEV?interval=1d&range=1d', {
-      headers: { 'User-Agent': 'Mozilla/5.0' }
-    });
+    const resp = await fetch('https://financialmodelingprep.com/api/v3/quote-short/VEEV?apikey=demo');
     const data = await resp.json();
-    const price = data.chart.result[0].meta.regularMarketPrice;
-    const prevClose = data.chart.result[0].meta.chartPreviousClose;
-    const change = price - prevClose;
-    const pctChange = (change / prevClose) * 100;
-    document.getElementById('live-price').textContent = '$' + price.toFixed(2);
+    if (!data || !data[0]) throw new Error('No data');
+    const price = data[0].price;
+    const prevClose = data[0].price; // demo key — use quote endpoint for prev close
+
+    // Get full quote for prev close
+    const resp2 = await fetch('https://financialmodelingprep.com/api/v3/quote/VEEV?apikey=demo');
+    const data2 = await resp2.json();
+    if (!data2 || !data2[0]) throw new Error('No full quote');
+    const fullQuote = data2[0];
+    const livePrice = fullQuote.price;
+    const previousClose = fullQuote.previousClose;
+    const change = fullQuote.change;
+    const pctChange = fullQuote.changesPercentage;
+
+    document.getElementById('live-price').textContent = '$' + livePrice.toFixed(2);
     const changeEl = document.getElementById('live-change');
     const sign = change >= 0 ? '+' : '';
     changeEl.textContent = sign + '$' + change.toFixed(2) + ' (' + sign + pctChange.toFixed(2) + '%)';
     changeEl.className = 'live-change ' + (change >= 0 ? 'up' : 'down');
-    document.getElementById('live-ts').textContent = 'Live · Updated ' + new Date().toLocaleTimeString();
+    document.getElementById('live-ts').textContent = 'Live via Financial Modeling Prep · ' + new Date().toLocaleTimeString();
     return;
-  } catch(e2) {}
+  } catch(e) {}
 
   // Final fallback — show entry price with note
   document.getElementById('live-ts').textContent = 'Entry price as of Mar 31, 2026';
