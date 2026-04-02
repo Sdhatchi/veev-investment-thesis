@@ -1547,11 +1547,21 @@ document.querySelectorAll('.thesis-card').forEach(card => {
 // LIVE PRICE FETCH
 // ============================================================
 async function fetchLivePrice() {
+  // Try multiple CORS-friendly endpoints
+  const endpoints = [
+    'https://query1.finance.yahoo.com/v8/finance/chart/VEEV?interval=1d&range=1d&cors=true',
+    'https://query2.finance.yahoo.com/v8/finance/chart/VEEV?interval=1d&range=1d',
+    'https://api.allorigins.win/get?url=' + encodeURIComponent('https://query1.finance.yahoo.com/v10/finance/quoteSummary/VEEV?modules=price')
+  ];
+  
+  // Try allorigins proxy (CORS workaround)
   try {
-    const resp = await fetch('https://query1.finance.yahoo.com/v8/finance/chart/VEEV?interval=1d&range=1d');
-    const data = await resp.json();
-    const price = data.chart.result[0].meta.regularMarketPrice;
-    const prevClose = data.chart.result[0].meta.chartPreviousClose;
+    const resp = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://query1.finance.yahoo.com/v10/finance/quoteSummary/VEEV?modules=price'));
+    const wrapper = await resp.json();
+    const data = JSON.parse(wrapper.contents);
+    const priceData = data.quoteSummary.result[0].price;
+    const price = priceData.regularMarketPrice.raw;
+    const prevClose = priceData.regularMarketPreviousClose.raw;
     const change = price - prevClose;
     const pctChange = (change / prevClose) * 100;
     
@@ -1560,13 +1570,31 @@ async function fetchLivePrice() {
     const sign = change >= 0 ? '+' : '';
     changeEl.textContent = sign + '$' + change.toFixed(2) + ' (' + sign + pctChange.toFixed(2) + '%)';
     changeEl.className = 'live-change ' + (change >= 0 ? 'up' : 'down');
-    document.getElementById('live-ts').textContent = 'Live from Yahoo Finance · ' + new Date().toLocaleString();
-  } catch(e) {
-    // Fallback — keep static
-    const now = new Date();
-    const opts = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' };
-    document.getElementById('live-ts').textContent = 'Live as of ' + now.toLocaleDateString('en-US', opts);
-  }
+    document.getElementById('live-ts').textContent = 'Live · Updated ' + new Date().toLocaleTimeString();
+    return;
+  } catch(e1) {}
+
+  // Fallback: try direct Yahoo
+  try {
+    const resp = await fetch('https://query2.finance.yahoo.com/v8/finance/chart/VEEV?interval=1d&range=1d', {
+      headers: { 'User-Agent': 'Mozilla/5.0' }
+    });
+    const data = await resp.json();
+    const price = data.chart.result[0].meta.regularMarketPrice;
+    const prevClose = data.chart.result[0].meta.chartPreviousClose;
+    const change = price - prevClose;
+    const pctChange = (change / prevClose) * 100;
+    document.getElementById('live-price').textContent = '$' + price.toFixed(2);
+    const changeEl = document.getElementById('live-change');
+    const sign = change >= 0 ? '+' : '';
+    changeEl.textContent = sign + '$' + change.toFixed(2) + ' (' + sign + pctChange.toFixed(2) + '%)';
+    changeEl.className = 'live-change ' + (change >= 0 ? 'up' : 'down');
+    document.getElementById('live-ts').textContent = 'Live · Updated ' + new Date().toLocaleTimeString();
+    return;
+  } catch(e2) {}
+
+  // Final fallback — show entry price with note
+  document.getElementById('live-ts').textContent = 'Entry price as of Mar 31, 2026';
 }
 fetchLivePrice();
 setInterval(fetchLivePrice, 60000);
