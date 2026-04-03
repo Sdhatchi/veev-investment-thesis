@@ -1327,37 +1327,50 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
 
   <!-- RESEARCH METHODOLOGY -->
   <div class="edge-box" style="margin-top:40px;border-color:var(--teal-dim)">
-    <div class="edge-title" style="color:var(--teal)">Research Methodology — Built Entirely with Perplexity Computer</div>
+    <div class="edge-title" style="color:var(--teal)">What Each Premium Source Contributed to This Thesis</div>
     <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px">
-      This thesis was researched, analyzed, and published using <strong style="color:var(--text-primary)">Perplexity Computer</strong> as a full research-to-publication pipeline. No manual data entry. Every number traces to a verified source.
+      Every claim in this thesis traces to a specific source pulled via <strong style="color:var(--text-primary)">Perplexity Computer</strong>. Here is what each data connector uniquely contributed — not just what was used, but what it changed about the analysis.
     </p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:12px">
-      <div style="background:var(--bg-card);padding:10px;border-radius:8px;border:1px solid var(--border)">
-        <div style="font-family:var(--font-mono);color:var(--teal);font-size:20px;font-weight:700">7</div>
-        <div style="font-size:11px;color:var(--text-muted)">Premium Data Connectors</div>
-        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">Perplexity Finance, PitchBook, CB Insights, SEC Filings, Earnings Transcripts, Web/Social, Statista</div>
-      </div>
-      <div style="background:var(--bg-card);padding:10px;border-radius:8px;border:1px solid var(--border)">
-        <div style="font-family:var(--font-mono);color:var(--teal);font-size:20px;font-weight:700">21</div>
-        <div style="font-size:11px;color:var(--text-muted)">Structured Data Files</div>
-        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">Financials, transcripts, ratios, segments, peers, insider trades, institutional holders, price history</div>
-      </div>
-      <div style="background:var(--bg-card);padding:10px;border-radius:8px;border:1px solid var(--border)">
-        <div style="font-family:var(--font-mono);color:var(--teal);font-size:20px;font-weight:700">10+</div>
-        <div style="font-size:11px;color:var(--text-muted)">Research Threads</div>
-        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">Multi-turn iterative research across stock screening, deep dives, validation, and asset generation</div>
-      </div>
-      <div style="background:var(--bg-card);padding:10px;border-radius:8px;border:1px solid var(--border)">
-        <div style="font-family:var(--font-mono);color:var(--teal);font-size:20px;font-weight:700">5</div>
-        <div style="font-size:11px;color:var(--text-muted)">Parallel Sub-Agents</div>
-        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">Financial data, earnings analysis, market intel, industry research, bear case validation</div>
-      </div>
-      <div style="background:var(--bg-card);padding:10px;border-radius:8px;border:1px solid var(--border)">
-        <div style="font-family:var(--font-mono);color:var(--gold);font-size:20px;font-weight:700">2</div>
-        <div style="font-size:11px;color:var(--text-muted)">Deliverables Generated</div>
-        <div style="font-size:11px;color:var(--text-secondary);margin-top:4px">10-page PDF (Python/ReportLab) + interactive website (1,700+ lines)</div>
-      </div>
-    </div>
+    <table class="data-table" style="font-size:12px">
+      <thead><tr><th>Source</th><th>What It Contributed</th><th>Where It Appears</th></tr></thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--teal);font-weight:600">Perplexity Finance</td>
+          <td>11 quarters of revenue, margins, FCF, EPS — enabled the 67% P/E compression finding and the 6/6 earnings beat track record</td>
+          <td>Sections 4, 7</td>
+        </tr>
+        <tr>
+          <td style="color:var(--teal);font-weight:600">Earnings Transcripts</td>
+          <td>CEO quote: "not all going so well" on competitor builds. Surfaced AI agent pricing strategy (free through 2030) and 140 live CRM customers — none of this is in financial statements</td>
+          <td>Sections 5, 6</td>
+        </tr>
+        <tr>
+          <td style="color:var(--teal);font-weight:600">PitchBook</td>
+          <td>Life sciences IT market sizing ($28B → $69B), pharma AI growth ($4B → $25B), competitive landscape mapping</td>
+          <td>Section 5</td>
+        </tr>
+        <tr>
+          <td style="color:var(--teal);font-weight:600">CB Insights</td>
+          <td>Healthcare AI investment trends, Veeva competitive positioning vs. emerging point solutions</td>
+          <td>Section 5</td>
+        </tr>
+        <tr>
+          <td style="color:var(--teal);font-weight:600">SEC Filings</td>
+          <td>10-K Salesforce disclosure language — confirmed as legal compliance requirement, not a hidden risk signal. Rebutted the Herb Greenberg bear case</td>
+          <td>Section 6</td>
+        </tr>
+        <tr>
+          <td style="color:var(--teal);font-weight:600">Statista</td>
+          <td>Pharma R&D spending decline data (3.6%), NIH budget cut figures, enterprise software migration failure rates (8% on-schedule)</td>
+          <td>Sections 5, 6</td>
+        </tr>
+        <tr>
+          <td style="color:var(--teal);font-weight:600">Web &amp; Social Media</td>
+          <td>LinkedIn practitioner posts on pharma migration complexity, Reddit/forum consensus on Veeva's regulatory stickiness, validated bear case claims against real user experience</td>
+          <td>Section 5</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div style="margin-top:24px;text-align:center">
