@@ -1590,7 +1590,7 @@ async function fetchLivePrice() {
   } catch(e) {}
 
   // Final fallback — show entry price with note
-  document.getElementById('live-ts').textContent = 'Entry price as of Mar 31, 2026';
+  document.getElementById('live-ts').textContent = 'At close: Apr 7, 2026';
 }
 fetchLivePrice();
 setInterval(fetchLivePrice, 60000);
