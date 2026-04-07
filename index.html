@@ -465,9 +465,6 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
   <div class="nav-item active" data-section="hero" onclick="scrollToSection('hero')">
     <span class="nav-num">1</span>
   </div>
-  <div class="nav-item" data-section="method" onclick="scrollToSection('method')">
-    <span class="nav-num">⚙</span>
-  </div>
   <div class="nav-item" data-section="exec" onclick="scrollToSection('exec')">
     <span class="nav-num">2</span>
   </div>
@@ -488,6 +485,9 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
   </div>
   <div class="nav-item" data-section="conclusion" onclick="scrollToSection('conclusion')">
     <span class="nav-num">8</span>
+  </div>
+  <div class="nav-item" data-section="method" onclick="scrollToSection('method')">
+    <span class="nav-num">⚙</span>
   </div>
 </nav>
 
@@ -575,7 +575,7 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
       </div>
       <div style="display:flex;align-items:center;gap:12px">
         <div style="width:48px;height:48px;border-radius:50%;background:var(--gold-bg);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;color:var(--gold);font-size:16px">7/10</div>
-        <div><div style="font-size:13px;font-weight:600">AI Optionality</div><div style="font-size:11px;color:var(--text-muted)">Not in estimates; high potential but early</div></div>
+        <div><div style="font-size:13px;font-weight:600">AI Optionality</div><div style="font-size:11px;color:var(--text-muted)">Free call option: $200-400M potential by FY2029</div></div>
       </div>
       <div style="display:flex;align-items:center;gap:12px">
         <div style="width:48px;height:48px;border-radius:50%;background:var(--green-bg);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:700;color:var(--green);font-size:16px">9/10</div>
@@ -594,96 +594,6 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
 </div>
 </section>
 
-<!-- ============================================================ -->
-<!-- SECTION 0: METHODOLOGY — HOW WE USED PERPLEXITY COMPUTER -->
-<!-- ============================================================ -->
-<section class="section" id="method">
-<div class="section-inner reveal">
-  <span class="section-label">00 — How This Thesis Was Built</span>
-  <h2>Perplexity Computer: Master Agent + Sub-Agent Architecture</h2>
-  <p style="color:var(--text-secondary);margin-bottom:24px;font-size:14px">
-    This entire thesis — from stock screening to PDF generation to this interactive website — was built using <strong style="color:var(--teal)">Perplexity Computer</strong> as a multi-agent research system. Here is the exact process:
-  </p>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:24px">
-
-    <!-- Phase 1 -->
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;border-left:3px solid var(--teal)">
-      <div style="font-family:var(--font-mono);color:var(--teal);font-size:11px;margin-bottom:6px">PHASE 1 — STOCK SCREENING</div>
-      <div style="font-size:13px;color:var(--text-primary);font-weight:600;margin-bottom:6px">Master Agent: Screen 7 Healthcare/AI Candidates</div>
-      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">Perplexity Finance tools pulled real-time quotes, P/E ratios, revenue growth, and analyst targets for VEEV, DOCS, GMED, ISRG, HIMS, FMS, and TDOC. Multi-factor scoring ranked each stock. <strong style="color:var(--text-primary)">VEEV selected</strong> based on analytical edge + valuation disconnect.</p>
-    </div>
-
-    <!-- Phase 2 -->
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;border-left:3px solid var(--gold)">
-      <div style="font-family:var(--font-mono);color:var(--gold);font-size:11px;margin-bottom:6px">PHASE 2 — PARALLEL SUB-AGENTS (5 Simultaneous)</div>
-      <div style="font-size:13px;color:var(--text-primary);font-weight:600;margin-bottom:6px">5 Research Sub-Agents Deployed in Parallel</div>
-      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">
-        <strong style="color:var(--text-primary)">Agent 2A:</strong> Financial data — 8Q income statements, balance sheets, cash flows, 5-year ratios, forward estimates<br>
-        <strong style="color:var(--text-primary)">Agent 2B:</strong> Earnings transcript — CEO/CFO quotes on AI, competition, guidance from Q4 FY2026 call<br>
-        <strong style="color:var(--text-primary)">Agent 2C:</strong> Market intelligence — sentiment, insider transactions, analyst targets, 2-year price history<br>
-        <strong style="color:var(--text-primary)">Agent 2D:</strong> Industry research via PitchBook + CB Insights connectors<br>
-        <strong style="color:var(--text-primary)">Agent 2E:</strong> Validation — bear case research, news, social media, fact-checking
-      </p>
-    </div>
-
-    <!-- Phase 3 -->
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;border-left:3px solid var(--green)">
-      <div style="font-family:var(--font-mono);color:var(--green);font-size:11px;margin-bottom:6px">PHASE 3 — SYNTHESIS + PUBLICATION</div>
-      <div style="font-size:13px;color:var(--text-primary);font-weight:600;margin-bottom:6px">Programmatic Asset Generation</div>
-      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">
-        <strong style="color:var(--text-primary)">PDF Builder:</strong> Python script (ReportLab + Matplotlib) generated a 10-page thesis with custom fonts, charts, and source citations — zero manual layout<br>
-        <strong style="color:var(--text-primary)">Website Builder:</strong> Full 1,500+ line interactive website with Chart.js, scroll animations, keyboard navigation, live price API<br>
-        <strong style="color:var(--text-primary)">Deployed to:</strong> Perplexity Computer hosting + GitHub Pages
-      </p>
-    </div>
-  </div>
-
-  <!-- Data pipeline visual -->
-  <h3 style="margin-bottom:12px">Data Pipeline: 21 Structured Research Files</h3>
-  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px">
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">quarterly_financials.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">earnings_transcript_analysis.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">validation_bears_risks.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">five_year_ratios.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">forward_estimates.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">segment_revenue.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">analyst_targets.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">insider_transactions.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">institutional_holders.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">price_history.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">sentiment_analysis.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">cbinsights_competitive.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">cbinsights_ai_lifesciences.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">industry_tailwinds_headwinds.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">pitchbook_profile.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">peers.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">earnings_history.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">fact_check_items.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">migration_research.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">politician_holders.md</span>
-    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">screening.py</span>
-  </div>
-
-  <div class="edge-box" style="border-color:var(--teal-dim)">
-    <div class="edge-title" style="color:var(--teal)">Human + Machine: What Each Contributed</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
-      <div>
-        <div style="font-size:11px;color:var(--teal);font-family:var(--font-mono);margin-bottom:6px">HUMAN ANALYST</div>
-        <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">
-          Domain expertise in enterprise software for regulated industries. Firsthand experience with large-scale ERP migrations in pharma. Stock selection judgment. Variant perception. Investment conviction.
-        </p>
-      </div>
-      <div>
-        <div style="font-size:11px;color:var(--gold);font-family:var(--font-mono);margin-bottom:6px">PERPLEXITY COMPUTER</div>
-        <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">
-          Parallel sub-agent orchestration across 7 data connectors. Structured extraction of 21 research files. Programmatic PDF generation (Python/ReportLab). Interactive website build (1,500+ lines). Real-time finance data integration.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
 
 <!-- ============================================================ -->
 <!-- SECTION 2: EXECUTIVE SUMMARY -->
@@ -1240,7 +1150,7 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
       <tr><td>10.8%</td><td>$174</td><td>$184</td><td>$196</td><td>$211</td><td>$229</td></tr>
     </tbody>
   </table>
-  <p style="font-size:12px;color:var(--text-muted);margin-top:8px">DCF base case implies $222/share (+27%). Combined with P/E reversion methodology (25x FY2028E EPS = $265), the weighted base target is <strong style="color:var(--teal)">$278</strong>. Even the most conservative DCF scenario (10.8% WACC, 2.0% TGR) yields $174 — near current price, confirming limited downside.</p>
+  <p style="font-size:12px;color:var(--text-muted);margin-top:8px">DCF base case implies $222/share (+29%). We blend this with a P/E reversion target of $265 (25x FY2028E EPS). <strong style="color:var(--text-primary)">Why 25x?</strong> It's the midpoint between the current compressed 18.3x and the sector median of 30x for high-quality SaaS (CRM trades at 24x, ORCL at 26x) — implying only a partial re-rating, not a return to the 54x historical average. A 60/40 blend (DCF/P/E) yields a base target of <strong style="color:var(--teal)">$278</strong>. Even the most conservative DCF scenario (10.8% WACC, 2.0% TGR) yields $174 — near current price, confirming limited downside.</p>
   <div style="margin-top:8px"><a href="https://perplexity.ai/finance/VEEV" target="_blank" class="src-link">Source: Perplexity Finance — VEEV</a> &nbsp; <a href="https://simplywall.st/stocks/us/healthcare/nyse-veev/veeva-systems/news/is-it-time-to-reassess-veeva-systems-veev-after-recent-share-1" target="_blank" class="src-link">Simply Wall St DCF</a></div>
 
   <h3 style="margin-top:32px">Forward Estimates (Consensus)</h3>
@@ -1265,7 +1175,7 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
       <tr><td>Salesforce</td><td>CRM</td><td>$174.9B</td><td>23.9x</td><td>+8.7%</td><td>~33%</td></tr>
       <tr><td>IQVIA</td><td>IQV</td><td>$28.9B</td><td>21.8x</td><td>+3.2%</td><td>~15%</td></tr>
       <tr><td>Oracle</td><td>ORCL</td><td>$423.2B</td><td>26.4x</td><td>+9.5%</td><td>~28%</td></tr>
-      <tr><td>Snowflake</td><td>SNOW</td><td>$52.1B</td><td>N/M</td><td>+28.0%</td><td>~5%</td></tr>
+      <tr><td>Definitive Healthcare</td><td>DH</td><td>$1.1B</td><td>N/M</td><td>-2.1%</td><td>~20%</td></tr>
       <tr><td>Doximity</td><td>DOCS</td><td>$4.4B</td><td>19.6x</td><td>+20.3%</td><td>~48%</td></tr>
     </tbody>
   </table>
@@ -1309,7 +1219,8 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
       <div>
         <div class="kpi-label">Stop Loss</div>
         <div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:700;color:var(--terra)">$155</div>
-        <div style="font-size:13px;color:var(--terra)">-11% downside</div>
+        <div style="font-size:13px;color:var(--terra)">-10% below entry</div>
+        <div style="font-size:10px;color:var(--text-muted)">Below DCF floor ($174) with 10% buffer for volatility</div>
       </div>
     </div>
   </div>
@@ -1388,6 +1299,96 @@ blockquote cite{display:block;font-style:normal;color:var(--teal);font-size:12px
 
   <div class="disclaimer">
     <strong>Disclaimer:</strong> This presentation is for educational purposes only as part of the Perplexity Stock Pitch Competition 2026. It does not constitute financial advice, a solicitation, or a recommendation to buy or sell any security. All data sourced from public filings, Perplexity Finance, SEC filings (10-K FY2026), Q4 FY2026 Earnings Transcript (March 4, 2026), CB Insights, Deloitte, Nova One Advisor, and other publicly available sources cited throughout. Past performance is not indicative of future results. All forward-looking statements involve risk and uncertainty. The author may hold positions in securities discussed.
+  </div>
+</div>
+</section>
+<!-- ============================================================ -->
+<!-- SECTION 0: METHODOLOGY — HOW WE USED PERPLEXITY COMPUTER -->
+<!-- ============================================================ -->
+<section class="section" id="method">
+<div class="section-inner reveal">
+  <span class="section-label">00 — How This Thesis Was Built</span>
+  <h2>Perplexity Computer: Master Agent + Sub-Agent Architecture</h2>
+  <p style="color:var(--text-secondary);margin-bottom:24px;font-size:14px">
+    This entire thesis — from stock screening to PDF generation to this interactive website — was built using <strong style="color:var(--teal)">Perplexity Computer</strong> as a multi-agent research system. Here is the exact process:
+  </p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:24px">
+
+    <!-- Phase 1 -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;border-left:3px solid var(--teal)">
+      <div style="font-family:var(--font-mono);color:var(--teal);font-size:11px;margin-bottom:6px">PHASE 1 — STOCK SCREENING</div>
+      <div style="font-size:13px;color:var(--text-primary);font-weight:600;margin-bottom:6px">Master Agent: Screen 7 Healthcare/AI Candidates</div>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">Perplexity Finance tools pulled real-time quotes, P/E ratios, revenue growth, and analyst targets for VEEV, DOCS, GMED, ISRG, HIMS, FMS, and TDOC. Multi-factor scoring ranked each stock. <strong style="color:var(--text-primary)">VEEV selected</strong> based on analytical edge + valuation disconnect.</p>
+    </div>
+
+    <!-- Phase 2 -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;border-left:3px solid var(--gold)">
+      <div style="font-family:var(--font-mono);color:var(--gold);font-size:11px;margin-bottom:6px">PHASE 2 — PARALLEL SUB-AGENTS (5 Simultaneous)</div>
+      <div style="font-size:13px;color:var(--text-primary);font-weight:600;margin-bottom:6px">5 Research Sub-Agents Deployed in Parallel</div>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">
+        <strong style="color:var(--text-primary)">Agent 2A:</strong> Financial data — 8Q income statements, balance sheets, cash flows, 5-year ratios, forward estimates<br>
+        <strong style="color:var(--text-primary)">Agent 2B:</strong> Earnings transcript — CEO/CFO quotes on AI, competition, guidance from Q4 FY2026 call<br>
+        <strong style="color:var(--text-primary)">Agent 2C:</strong> Market intelligence — sentiment, insider transactions, analyst targets, 2-year price history<br>
+        <strong style="color:var(--text-primary)">Agent 2D:</strong> Industry research via PitchBook + CB Insights connectors<br>
+        <strong style="color:var(--text-primary)">Agent 2E:</strong> Validation — bear case research, news, social media, fact-checking
+      </p>
+    </div>
+
+    <!-- Phase 3 -->
+    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:16px;border-left:3px solid var(--green)">
+      <div style="font-family:var(--font-mono);color:var(--green);font-size:11px;margin-bottom:6px">PHASE 3 — SYNTHESIS + PUBLICATION</div>
+      <div style="font-size:13px;color:var(--text-primary);font-weight:600;margin-bottom:6px">Programmatic Asset Generation</div>
+      <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">
+        <strong style="color:var(--text-primary)">PDF Builder:</strong> Python script (ReportLab + Matplotlib) generated a 10-page thesis with custom fonts, charts, and source citations — zero manual layout<br>
+        <strong style="color:var(--text-primary)">Website Builder:</strong> Full 1,500+ line interactive website with Chart.js, scroll animations, keyboard navigation, live price API<br>
+        <strong style="color:var(--text-primary)">Deployed to:</strong> Perplexity Computer hosting + GitHub Pages
+      </p>
+    </div>
+  </div>
+
+  <!-- Data pipeline visual -->
+  <h3 style="margin-bottom:12px">Data Pipeline: 21 Structured Research Files</h3>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px">
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">quarterly_financials.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">earnings_transcript_analysis.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">validation_bears_risks.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">five_year_ratios.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">forward_estimates.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">segment_revenue.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">analyst_targets.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">insider_transactions.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">institutional_holders.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">price_history.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">sentiment_analysis.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">cbinsights_competitive.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">cbinsights_ai_lifesciences.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">industry_tailwinds_headwinds.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">pitchbook_profile.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">peers.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">earnings_history.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">fact_check_items.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">migration_research.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">politician_holders.md</span>
+    <span style="background:var(--bg-surface);color:var(--text-secondary);padding:4px 10px;border-radius:4px;font-size:11px;font-family:var(--font-mono);border:1px solid var(--border)">screening.py</span>
+  </div>
+
+  <div class="edge-box" style="border-color:var(--teal-dim)">
+    <div class="edge-title" style="color:var(--teal)">Human + Machine: What Each Contributed</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px">
+      <div>
+        <div style="font-size:11px;color:var(--teal);font-family:var(--font-mono);margin-bottom:6px">HUMAN ANALYST</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">
+          Domain expertise in enterprise software for regulated industries. Firsthand experience with large-scale ERP migrations in pharma. Stock selection judgment. Variant perception. Investment conviction.
+        </p>
+      </div>
+      <div>
+        <div style="font-size:11px;color:var(--gold);font-family:var(--font-mono);margin-bottom:6px">PERPLEXITY COMPUTER</div>
+        <p style="font-size:12px;color:var(--text-secondary);line-height:1.6">
+          Parallel sub-agent orchestration across 7 data connectors. Structured extraction of 21 research files. Programmatic PDF generation (Python/ReportLab). Interactive website build (1,500+ lines). Real-time finance data integration.
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 </section>
@@ -1540,7 +1541,8 @@ const pillarData = {
 <li><strong style="color:var(--text-primary)">Agentic CRM</strong> — Live today, free through 2030; strategic defense against Salesforce</li>
 <li><strong style="color:var(--text-primary)">Migration AI</strong> — Reduce implementation costs; accelerate Vault CRM transitions</li>
 </ul>
-<p style="color:var(--text-secondary);line-height:1.7">The pharma AI market is projected to grow from $4B (2025) to $25B (2030) — a 600% increase. Veeva has a formal Anthropic partnership and 900M+ HCP records as a proprietary training data moat.</p>
+<p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px">The pharma AI market is projected to grow from $4B (2025) to $25B (2030) — a 600% increase. Veeva has a formal Anthropic partnership and 900M+ HCP records as a proprietary training data moat.</p>
+<p style="color:var(--text-secondary);line-height:1.7"><strong style="color:var(--gold)">Sizing the option:</strong> If Veeva captures just 2-4% of the $25B pharma AI TAM by FY2029, that’s $200-400M in incremental revenue — none of which is in current estimates. At VEEV’s subscription-level margin (~87%), this adds $1.00-2.00 to EPS. At even 20x earnings, that’s $20-40/share of unpriced upside. This is a free call option — if AI revenue arrives, the stock re-rates. If it doesn’t, the thesis still works on valuation compression alone.</p>
 <div style="margin-top:12px"><a href="https://app.cbinsights.com/research/generative-ai-healthcare-life-sciences-market-map/" target="_blank" class="src-link">CB Insights</a> · <a href="https://www.perplexity.ai/finance/VEEV/earnings" target="_blank" class="src-link">Earnings Transcript</a></div>`
   }
 };
